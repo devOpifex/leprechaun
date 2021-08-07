@@ -28,7 +28,9 @@ code myapp
 ```
 
 Once done, from the root of the package, scaffold a leprechaun
-application.
+application. This function accepts a single argument, `ui` to
+specify whether one wants a `fluidPage` or `navbarPage` for the
+UI, it defaults to the latter.
 
 ```r
 leprechaun::scaffold()
