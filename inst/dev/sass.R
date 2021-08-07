@@ -1,16 +1,17 @@
 #' Build CSS
 #' 
 #' Build the sass
-#' 
-#' @export 
 sass_build <- function(){
 	has_sass <- requireNamespace("sass", quietly = TRUE)
 
-	if(!has_sass)
-		stop(
-			"Requires `sass` package: `install.packages('sass')`", 
+	if(!has_sass){
+		warning(
+			"Requires `sass` package: `install.packages('sass')`\n", 
+			"Skipping.",
 			call. = FALSE
 		)
+		return()
+	}
 
 	output <- sass::sass(
 		sass::sass_file(

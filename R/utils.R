@@ -109,3 +109,34 @@ copy_file <- function(infile, outfile){
 		overwrite = TRUE
 	)
 }
+
+#' Whether Project is Leprechaun
+#' 
+#' Whether the current project has been 
+#' scaffolded with leprechaun.
+#' 
+#' @return Boolean
+#' 
+#' @noRd 
+#' @keywords internal
+is_leprechaun <- function(){
+	fs::file_exists(LOCK_FILE)
+}
+
+#' Whether Project is Leprechaun
+#' 
+#' Checks whether the project is leprechaun scaffolded
+#' throws an error if not.
+#' 
+#' @noRd 
+#' @keywords internal
+check_is_leprechaun <- function(){
+	is <- is_leprechaun()
+	if(is)
+		return()
+	
+	stop(
+		"This is not a leprechaun project, see `scaffold_leprechaun()`",
+		call. = FALSE
+	)
+}

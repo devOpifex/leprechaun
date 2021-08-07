@@ -15,7 +15,7 @@
 #' @importFrom usethis use_package use_build_ignore
 #' 
 #' @export 
-scaffold_leprechaun <- function(
+scaffold <- function(
 	ui = c("navbarPage", "fluidPage"),
 	overwrite = FALSE
 ){
@@ -56,6 +56,7 @@ scaffold_leprechaun <- function(
 	create_onload()
 
 	# images
+	cat("\n")
 	create_dir_dev()
 	create_dir_assets()
 	create_dir_img()

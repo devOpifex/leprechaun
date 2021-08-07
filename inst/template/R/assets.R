@@ -10,14 +10,14 @@
 serveAssets <- function(){
 	# JavaScript files
 	javascript <- list.files(
-		"inst/assets", 
+		"inst", 
 		recursive = TRUE, 
 		pattern = ".js$"
 	)
 
 	# CSS files
 	css <- list.files(
-		"inst/assets",
+		"inst",
 		recursive = TRUE,
 		pattern = ".css$"
 	)
