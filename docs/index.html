@@ -21,18 +21,13 @@
     <script>
       new Docute({
         cssVariables(theme) {
-          return theme === 'dark' ? {
-            accentColor: '#3dc111',
-            pageBackground: '#1c2113',
-            sidebarLinkActiveColor: "var(--accent-color)"
-          } : {
+          return {
             accentColor: '#268008',
             pageBackground: '#f7f7f7',
             sidebarLinkActiveColor: "var(--accent-color)"
-          }
+          };
         },
-        detectSystemDarkTheme: false,
-        darkThemeToggler: true,				
+				theme: 'default',
         target: '#docute',
 				highlight: ['r', 'javascript', 'pug', 'vue', 'yaml', 'typescript', 'bash'],
 				title: 'Leprechaun',
