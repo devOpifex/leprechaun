@@ -5,7 +5,7 @@
 
 # leprechaun
 
-Leprechaun is allows you to generate dependency-free robust 
+Leprechaun is allows you to generate _lean_ and robust 
 [shiny](http://shiny.rstudio.com/) applications.
 
 </div>

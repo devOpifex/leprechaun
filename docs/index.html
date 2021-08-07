@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>leprechaun</title>
+    <link rel="stylesheet" href="https://unpkg.com/docute@4/dist/docute.css">
+    <style>
+      /* Import desired font from Google fonts */
+      @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;600&display=swap');
+    
+      /* Apply the font to body (to override the default one) */
+      body {
+        font-family: 'Raleway', sans-serif;
+      }
+    </style>	
+  </head>
+  <body>
+    <div id="docute"></div>
+    <script src="https://unpkg.com/docute@4/dist/docute.js"></script>
+    <script>
+      new Docute({
+        cssVariables(theme) {
+          return theme === 'dark' ? {
+            accentColor: '#3dc111',
+            pageBackground: '#1c2113',
+            sidebarLinkActiveColor: "var(--accent-color)"
+          } : {
+            accentColor: '#268008',
+            pageBackground: '#f7f7f7',
+            sidebarLinkActiveColor: "var(--accent-color)"
+          }
+        },
+        detectSystemDarkTheme: true,
+        darkThemeToggler: true,				
+        target: '#docute',
+				highlight: ['r', 'javascript', 'pug', 'vue', 'yaml', 'typescript', 'bash'],
+				title: 'Leprechaun',
+				nav: [
+					{
+						title: 'Home',
+						link: '/'
+					},
+					{
+						title: 'GitHub',
+						link: 'https://github.com/devOpifex/leprechaun'
+					},
+				],
+				sidebar: [
+					{
+						title: 'Home',
+						link: '/'
+					},
+					{
+						title: 'Guide',
+						children: [
+							{
+								title: 'Quick Start',
+								link: '/guide/quick-start'
+							},
+							{
+								title: 'Plugins',
+								link: '/guide/plugins'
+							},
+							{
+								title: 'JavaScript',
+								link: '/guide/javascript'
+							}
+						]
+					},
+         {
+            title: 'Reference',
+						children: [{"title":"Add module","link":"/reference/add_module"},{"title":"Build","link":"/reference/build"},{"title":"Create assets","link":"/reference/create_assets"},{"title":"Create onload","link":"/reference/create_onload"},{"title":"Create run","link":"/reference/create_run"},{"title":"Create utils","link":"/reference/create_utils"},{"title":"Plugin config","link":"/reference/plugin_config"},{"title":"Plugin packer","link":"/reference/plugin_packer"},{"title":"Plugin sass","link":"/reference/plugin_sass"},{"title":"Scaffold","link":"/reference/scaffold"}] 
+          },	
+					{
+						title: 'GitHub',
+						link: 'https://github.com/devOpifex/leprechaun'
+					},
+				]
+      })
+    </script>
+  </body>
+</html>

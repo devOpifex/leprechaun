@@ -1,0 +1,17 @@
+# `create_utils`
+
+Create Utils
+
+
+## Description
+
+Create `utils.R` file containing helper functions.
+
+
+## Usage
+
+```r
+create_utils()
+```
+
+

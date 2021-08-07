@@ -12,7 +12,7 @@
 #' 
 #' @importFrom cli cli_h1 cli_h2
 #' @importFrom fs file_exists
-#' @importFrom usethis use_package use_build_ignore
+#' @importFrom usethis use_build_ignore
 #' 
 #' @export 
 scaffold <- function(
@@ -42,8 +42,8 @@ scaffold <- function(
 
 	# add dependencies
 	cli_h2("Adding dependencies")
-	use_package("shiny")
-	use_package("bslib")
+	add_package("shiny")
+	add_package("bslib")
 	cat("\n")
 
 	# copy files

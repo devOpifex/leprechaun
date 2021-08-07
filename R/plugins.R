@@ -4,8 +4,8 @@
 #' bundling.
 #' 
 #' @importFrom cli cli_alert_info
-#' @importFrom usethis use_package
 #' @importFrom fs dir_copy file_copy
+#' @importFrom usethis use_build_ignore
 #' 
 #' @export 
 plugin_sass <- function(){
@@ -18,7 +18,8 @@ plugin_sass <- function(){
 	copy_file(pkg_file("dev", "sass.R"), c("inst", "dev", "sass.R"))
 	cli_alert_info("Creating {.file scss}")
 	cli_alert_info("Creating {.file inst/dev/sass.R}")
-	use_package("sass", type = "Suggests")
+	add_package("sass", type = "Suggests")
+	use_build_ignore("scss")
 }
 
 #' Check that scss exists
@@ -26,6 +27,7 @@ plugin_sass <- function(){
 #' If the scss directory already exists we stop.
 #' 
 #' @importFrom fs dir_exists
+#' 
 #' @noRd 
 #' @keywords internal
 check_scss <- function(){
@@ -43,6 +45,8 @@ check_scss <- function(){
 #' 
 #' @note This requires a scaffold of packer already in place.
 #' 
+#' @importFrom cli cli_alert_info
+#' 
 #' @export 
 plugin_packer <- function(){
 	# basic checks before proceeding
@@ -52,7 +56,7 @@ plugin_packer <- function(){
 	# copy files and script
 	copy_file(pkg_file("dev", "packer.R"), c("inst", "dev", "packer.R"))
 	cli_alert_info("Creating {.file inst/dev/packer.R}")
-	use_package("packer", type = "Suggests")
+	add_package("packer", type = "Suggests")
 }
 
 #' Check Whether it is a packer project
@@ -80,7 +84,6 @@ check_packer <- function(){
 #' Setup a configuration file and helper functions.
 #' 
 #' @importFrom cli cli_alert_info
-#' @importFrom usethis use_package
 #' 
 #' @export 
 plugin_config <- function(){
@@ -98,7 +101,7 @@ plugin_config <- function(){
 	)
 	cli_alert_info("Creating {.file inst/config.R}")
 	cli_alert_info("Creating {.file inst/config.yml}")
-	use_package("yaml")
+	add_package("yaml")
 }
 
 #' Check that config does not exists

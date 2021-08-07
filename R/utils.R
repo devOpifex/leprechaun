@@ -145,3 +145,19 @@ check_is_leprechaun <- function(){
 		call. = FALSE
 	)
 }
+
+#' Add a package
+#' 
+#' Add a package to the `DESCRIPTION` file.
+#' 
+#' @importFrom usethis use_package
+#' @importFrom cli cli_alert_success
+#' 
+#' @noRd 
+#' @keywords internal
+add_package <- function(package, type = "Imports", ...){
+	cli_alert_success("Adding '{package}' to {type} in DESCRIPTION")
+	suppressMessages(
+		use_package(package, type, ...)
+	)
+}
