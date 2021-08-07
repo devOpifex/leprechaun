@@ -11,6 +11,16 @@ It's not yet on CRAN, get it from Github.
 remotes::install_github("devOpifex/leprechaun")
 ```
 
+## Example
+
+Create a package, then from its root, scaffold a leprechaun
+app.
+
+```r
+usethis::create_package("myapp")
+leprechaun::scaffold()
+```
+
 ## The elephant in the room
 
 Leprechaun is indeed very similar to 
