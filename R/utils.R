@@ -42,28 +42,33 @@ get_pkg_version <- function(){
 #' 
 #' Replace the content of a template file.
 #' 
+#' @param content Content to replace.
+#' 
 #' @noRd 
 #' @keywords internal
-tmp_replace <- function(content){
-	gsub("#PKGNAME#", get_pkg_name(), content)
+tmp_replace <- function(content, module = NULL ){
+	content <- gsub("#PKGNAME#", get_pkg_name(), content)
+
+	if(!is.null(module))
+		content <- gsub("#MODULE#", module, content)
 }
 
 #' @noRd 
 #' @keywords internal
-tmp_read_replace <- function(file){
+tmp_read_replace <- function(file, module = NULL){
 	content <- read_lines(file)
-	tmp_replace(content)
+	tmp_replace(content, module)
 }
 
 #' @noRd 
 #' @keywords internal
-tmp_read_replace_write <- function(infile, outfile){
+tmp_read_replace_write <- function(infile, outfile, module = NULL){
 	# paths
 	infile <- collapse_path(infile)
 	outfile <- collapse_path(outfile)
 
 	# content
-	content <- tmp_read_replace(infile)
+	content <- tmp_read_replace(infile, module)
 	writeLines(content, con = outfile)
 }
 
