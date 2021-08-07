@@ -50,6 +50,13 @@ setup_packer <- function(){
 	use_package("sass", type = "Suggests")
 }
 
+#' Check Whether it is a packer project
+#' 
+#' Checks whether the current project was scaffolded with
+#' packer, throws an error if not.
+#' 
+#' @noRd 
+#' @keywords internal
 check_packer <- function(){
 	if(file.exists("package.json"))
 		return()
