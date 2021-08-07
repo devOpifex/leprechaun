@@ -1,13 +1,14 @@
-#' Setup Sass
+#' Sass PLugin
 #' 
-#' Setup basic structure for sass.
+#' Setup basic structure for sass and helper script for
+#' bundling.
 #' 
 #' @importFrom cli cli_alert_info
 #' @importFrom usethis use_package
 #' @importFrom fs dir_copy file_copy
 #' 
 #' @export 
-setup_sass <- function(){
+plugin_sass <- function(){
 	# basic checks before proceeding
 	check_scss()
 	check_is_leprechaun()
@@ -36,14 +37,14 @@ check_scss <- function(){
 	stop("Directory `scss` already exists", call. = FALSE)
 }
 
-#' Setup Packer
+#' Packer Plugin
 #' 
 #' Setup a packer script to easily bundle the JavaScipt.
 #' 
 #' @note This requires a scaffold of packer already in place.
 #' 
 #' @export 
-setup_packer <- function(){
+plugin_packer <- function(){
 	# basic checks before proceeding
 	check_packer()
 	check_is_leprechaun()
@@ -74,15 +75,15 @@ check_packer <- function(){
 	)
 }
 
-#' Setup Config
+#' Config Plugin
 #' 
-#' Setup a configuration file.
+#' Setup a configuration file and helper functions.
 #' 
 #' @importFrom cli cli_alert_info
 #' @importFrom usethis use_package
 #' 
 #' @export 
-setup_config <- function(){
+plugin_config <- function(){
 	# basic checks before proceeding
 	check_config()
 	check_is_leprechaun()
