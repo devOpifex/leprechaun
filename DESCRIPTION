@@ -21,4 +21,5 @@ Imports:
     jsonlite
 Suggests:
     sass,
+    shiny,
     packer

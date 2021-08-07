@@ -7,5 +7,8 @@
 setup_packer()
 }
 \description{
-Setup Packer
+Setup a packer script to easily bundle the JavaScipt.
+}
+\note{
+This requires a scaffold of packer already in place.
 }
