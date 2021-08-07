@@ -1,0 +1,32 @@
+<div align="center">
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+# leprechaun
+
+Leprechaun is allows you to generate dependency-free robust 
+[shiny](http://shiny.rstudio.com/) applications.
+
+</div>
+
+## Get it
+
+Leprechaun is not yet on CRAN, get it from Github.
+
+``` r
+# install.packages("remotes")
+remotes::install_github("devOpifex/leprechaun")
+```
+
+## Basics
+
+From the root of a package scaffold a leprechaun application.
+
+``` r
+usethis::create_package("myApp")
+leprechaun::scaffold()
+```
+
+This effectively generates code within the package to run a 
+shiny application within a package. 
