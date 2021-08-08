@@ -69,12 +69,18 @@ plugin_packer <- function(){
 #' @noRd 
 #' @keywords internal
 check_packer <- function(){
+	if(!requireNamespace("packer", quietly = TRUE))
+		stop(
+			"This requires the packer package:\n`install.packages('packer')`",
+			call. = FALSE
+		)
+
 	if(file_exists("package.json"))
 		return()
 	
 	stop(
-		"This does not appear to be a packer project. ",
-		"Run a packer scaffold and try again.",
+		"This does not appear to be a packer project.\n",
+		"Create a packer scaffold and try again.",
 		call. = FALSE
 	)
 }

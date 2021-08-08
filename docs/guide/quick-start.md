@@ -86,7 +86,7 @@ to Bootstrap 4 is highly recommended!
 ## Modules
 
 Good practice has it that shiny code should be placed within 
-"modules," they make shiny easily code reusable and are a great
+"modules," they make shiny code easily reusable and are a great
 way to structure an application: compartmentalisation.
 
 You can add modules with the function:

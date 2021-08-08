@@ -4,7 +4,7 @@
 #' 
 #' @param req The request object.
 #' 
-#' @importFrom shiny fluidPage
+#' @import shiny
 #' @importFrom bslib bs_theme
 #' 
 #' @keywords internal

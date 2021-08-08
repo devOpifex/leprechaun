@@ -3,7 +3,7 @@
 The `leprechaun::scaffold()` functions generates a bare bone
 application setup.
 
-Leprechaun aims for low number of dependncies, hence the
+Leprechaun aims for low number of dependencies, hence the
 aforementioned approach.
 
 Though the basic setup should have all the features necessary
@@ -13,12 +13,8 @@ for larger applications.
 These can be added with the `plugin_*` family of functions.
 
 <Note>
-Please feel free to open issues or pull requests to
-propose new plugins.
-
-Given the structure of the code a plugin of yours does not 
-necessarily have to be part of leprechaun itself, it can
-be in your any other package.
+Plugins are meant to facilitate making shiny work 
+with _other packages_.
 </Note>
 
 ## Sass
