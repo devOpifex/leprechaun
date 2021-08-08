@@ -13,6 +13,9 @@
       body {
         font-family: 'Raleway', sans-serif;
       }
+			.language-css .token.string, .style .token.string, .token.entity, .token.string, .token.url{
+				color: #55b933;
+			}
     </style>	
   </head>
   <body>
@@ -24,7 +27,9 @@
           return {
             accentColor: '#268008',
             pageBackground: '#f7f7f7',
-            sidebarLinkActiveColor: "var(--accent-color)"
+            sidebarLinkActiveColor: "var(--accent-color)",
+						inlineCodeBackground: "var(--accent-color)",
+						inlineCodeColor: '#fff'
           };
         },
 				theme: 'default',
@@ -73,7 +78,7 @@
 					},
          {
             title: 'Reference',
-						children: [{"title":"Add module","link":"/reference/add_module"},{"title":"Build","link":"/reference/build"},{"title":"Create assets","link":"/reference/create_assets"},{"title":"Create onload","link":"/reference/create_onload"},{"title":"Create run","link":"/reference/create_run"},{"title":"Create utils","link":"/reference/create_utils"},{"title":"Plugin config","link":"/reference/plugin_config"},{"title":"Plugin packer","link":"/reference/plugin_packer"},{"title":"Plugin sass","link":"/reference/plugin_sass"},{"title":"Scaffold","link":"/reference/scaffold"}] 
+						children: [{"title":"Add module","link":"/reference/add_module"},{"title":"Build","link":"/reference/build"},{"title":"Create assets","link":"/reference/create_assets"},{"title":"Create onload","link":"/reference/create_onload"},{"title":"Create utils","link":"/reference/create_utils"},{"title":"Plugin config","link":"/reference/plugin_config"},{"title":"Plugin packer","link":"/reference/plugin_packer"},{"title":"Plugin sass","link":"/reference/plugin_sass"},{"title":"Scaffold","link":"/reference/scaffold"},{"title":"Update scaffold","link":"/reference/update_scaffold"},{"title":"Use js utils","link":"/reference/use_js_utils"}]
           },	
 					{
 						title: 'GitHub',

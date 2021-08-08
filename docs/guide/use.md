@@ -17,6 +17,23 @@ Requires a packer scaffold in place.
 These include function show or hide an element from the DOM 
 and more.
 
+```r
+library(shiny)
+
+ui <- fluidPage(
+	actionButton("show", "Show"),
+	p(id = "element", "Hello", style = "display:none;")	
+)
+
+server <- function(input, output, session){
+	observeEvent(input$show, {
+		show("element")
+	})
+}
+
+shinyApp(ui, server)
+```
+
 <Note type="tip">
-Requires running `leprechaun::build()`
+Requires running <code>leprechaun::build()</code>
 </Note>

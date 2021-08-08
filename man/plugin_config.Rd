@@ -4,7 +4,10 @@
 \alias{plugin_config}
 \title{Config Plugin}
 \usage{
-plugin_config()
+plugin_config(quiet = FALSE)
+}
+\arguments{
+\item{quiet}{Whether to print messages.}
 }
 \description{
 Setup a configuration file and helper functions.

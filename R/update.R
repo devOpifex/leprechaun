@@ -35,6 +35,59 @@ update_scaffold <- function(force = FALSE){
 	invisible()
 }
 
+update_plugins <- function(){
+	version <- get_pkg_version()
+
+	conf <- lock_read()
+	confuse <- conf[["plugins"]]
+
+	if(!length(confuse))
+		return()
+
+	for(i in 1:length(confuse)){
+		# update functions write to the lockfile
+		# we read it at every loop
+		conf <- lock_read()
+		confuse <- conf[["plugins"]]
+
+		# it's already on the latest version
+		if(confuse[[i]]$leprechaun == version)
+			next;
+
+		switch(
+			names(confuse)[i],
+			"sass" = update_plugin_sass(),
+			"packer" = update_plugin_packer(),
+			"config" = update_plugin_config()
+		)
+	}
+}
+
+#' @noRd 
+#' @keywords internal
+#' @importFrom cli cli_alert_info
+update_plugin_config <- function(){
+	cli_alert_info("Updating {.file R.R}")
+	plugin_config_overwritable()
+}
+
+#' @noRd 
+#' @keywords internal
+#' @importFrom cli cli_alert_info
+update_plugin_sass <- function(){
+	cli_alert_info("Updating {.file inst/dev/sass.R}")
+	plugin_sass_overwritable()
+}
+
+#' @noRd 
+#' @keywords internal
+#' @importFrom cli cli_alert_info
+update_plugin_packer <- function(){
+	cli_alert_info("Updating {.file R/assets.R}")
+	plugin_packer(TRUE)
+}
+
+# Update Main version
 update_main <- function(){
 	conf <- lock_read()
 	conf$version <- get_pkg_version()
@@ -82,7 +135,7 @@ update_use <- function(){
 			next;
 
 		switch(
-			names(confr)[i],
+			names(confuse)[i],
 			"js-utils" = update_js_utils()
 		)
 	}

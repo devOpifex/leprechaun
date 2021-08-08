@@ -4,7 +4,10 @@
 \alias{plugin_sass}
 \title{Sass PLugin}
 \usage{
-plugin_sass()
+plugin_sass(quiet = FALSE)
+}
+\arguments{
+\item{quiet}{Whether to print messages.}
 }
 \description{
 Setup basic structure for sass and helper script for

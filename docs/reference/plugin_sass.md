@@ -12,7 +12,14 @@ Setup basic structure for sass and helper script for
 ## Usage
 
 ```r
-plugin_sass()
+plugin_sass(quiet = FALSE)
 ```
+
+
+## Arguments
+
+Argument      |Description
+------------- |----------------
+`quiet`     |     Whether to print messages.
 
 

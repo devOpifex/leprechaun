@@ -3,24 +3,38 @@
 #' Setup basic structure for sass and helper script for
 #' bundling.
 #' 
+#' @param quiet Whether to print messages.
+#' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_copy file_copy
 #' @importFrom usethis use_build_ignore
 #' 
 #' @export 
-plugin_sass <- function(){
+plugin_sass <- function(quiet = FALSE){
 	# basic checks before proceeding
 	check_scss()
 	check_is_leprechaun()
+	
+	if(!quiet){
+		cli_alert_success("Creating {.file scss}")
+		cli_alert_success("Creating {.file inst/dev/sass.R}")
+	}
 
 	# copy files and script
 	dir_copy(pkg_file("scss"), "scss")
-	copy_file(pkg_file("dev", "sass.R"), c("inst", "dev", "sass.R"))
-	cli_alert_success("Creating {.file scss}")
-	cli_alert_success("Creating {.file inst/dev/sass.R}")
+	plugin_sass_overwritable()
 	add_package("sass", type = "Suggests")
 	use_build_ignore("scss")
-	lock_plugin("sass", get_pkg_version("sass"))
+	lock_plugin(
+		"sass", list(
+			leprechaun = get_pkg_version(),
+			sass = get_pkg_version("sass")
+		)
+	)
+}
+
+plugin_sass_overwritable <- function(){
+	copy_file(pkg_file("dev", "sass.R"), c("inst", "dev", "sass.R"))
 }
 
 #' Check that scss exists
@@ -44,21 +58,31 @@ check_scss <- function(){
 #' 
 #' Setup a packer script to easily bundle the JavaScipt.
 #' 
+#' @param quiet Whether to print messages.
+#' 
 #' @note This requires a scaffold of packer already in place.
 #' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @export 
-plugin_packer <- function(){
+plugin_packer <- function(quiet = FALSE){
 	# basic checks before proceeding
 	check_packer()
 	check_is_leprechaun()
 
 	# copy files and script
 	copy_file(pkg_file("dev", "packer.R"), c("inst", "dev", "packer.R"))
-	cli_alert_success("Creating {.file inst/dev/packer.R}")
+
+	if(!quiet)
+		cli_alert_success("Creating {.file inst/dev/packer.R}")
+
 	add_package("packer", type = "Suggests")
-	lock_plugin("packer", get_pkg_version("packer"))
+	lock_plugin(
+		"packer", list(
+			leprechaun = get_pkg_version(),
+			packer = get_pkg_version("packer")
+		)
+	)
 }
 
 #' Check Whether it is a packer project
@@ -91,26 +115,41 @@ check_packer <- function(){
 #' 
 #' Setup a configuration file and helper functions.
 #' 
+#' @param quiet Whether to print messages.
+#' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @export 
-plugin_config <- function(){
+plugin_config <- function(quiet = FALSE){
 	# basic checks before proceeding
 	check_config()
 	check_is_leprechaun()
 
-	tmp_read_replace_write(
-		pkg_file("config", "config.R"),
-		"R/config.R"
-	)
+	plugin_config_overwritable()
 	copy_file(
 		pkg_file("config", "config.yml"),
 		c("inst", "config.yml")
 	)
-	cli_alert_success("Creating {.file inst/config.R}")
-	cli_alert_success("Creating {.file inst/config.yml}")
+
+	if(!quiet){
+		cli_alert_success("Creating {.file inst/config.R}")
+		cli_alert_success("Creating {.file inst/config.yml}")
+	}
+
 	add_package("yaml")
-	lock_plugin("config", get_pkg_version("config"))
+	lock_plugin(
+		"config", list(
+			leprechaun = get_pkg_version(),
+			config = get_pkg_version("config")
+		)
+	)
+}
+
+plugin_config_overwritable <- function(){
+	tmp_read_replace_write(
+		pkg_file("config", "config.R"),
+		"R/config.R"
+	)
 }
 
 #' Check that config does not exists

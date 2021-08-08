@@ -4,7 +4,10 @@
 \alias{plugin_packer}
 \title{Packer Plugin}
 \usage{
-plugin_packer()
+plugin_packer(quiet = FALSE)
+}
+\arguments{
+\item{quiet}{Whether to print messages.}
 }
 \description{
 Setup a packer script to easily bundle the JavaScipt.

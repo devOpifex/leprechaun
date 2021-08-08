@@ -37,7 +37,7 @@ leprechaun::scaffold()
 ```
 
 ```
-── Scaffolding leprechaun app ─────────────────────────────────────────────────────────
+── Scaffolding leprechaun app ───────────────────────────────────────────────
 
 ── Creating lock file ──
 
