@@ -4,7 +4,10 @@
 \alias{create_utils}
 \title{Create Utils}
 \usage{
-create_utils()
+create_utils(quiet = FALSE)
+}
+\arguments{
+\item{quiet}{Whether to pring messages to the console.}
 }
 \description{
 Create \code{utils.R} file containing helper functions.

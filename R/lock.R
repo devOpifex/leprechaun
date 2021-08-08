@@ -55,14 +55,14 @@ lock_r <- function(key, value = get_pkg_version()) {
 
 #' @noRd 
 #' @keywords internal
-lock_js <- function(key, value = get_pkg_version()) {
-	lock_change(key, value, parent = "js")
+lock_use <- function(key, value = get_pkg_version()) {
+	lock_change(key, value, parent = "uses")
 }
 
 #' @noRd 
 #' @keywords internal
 lock_plugin <- function(key, value = get_pkg_version()) {
-	lock_change(key, value, parent = "plugin")
+	lock_change(key, value, parent = "plugins")
 }
 
 #' @noRd 

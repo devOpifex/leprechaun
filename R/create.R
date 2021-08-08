@@ -5,12 +5,16 @@
 #' @param type Type of ui to create. 
 #' Used to dynamically determine the file required
 #' and its path.
+#' @param quiet Whether to pring messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @noRd 
 #' @keywords internal
-create_ui <- function(type = c("navbarPage", "fluidPage")){
+create_ui <- function(
+	type = c("navbarPage", "fluidPage"),
+	quiet = FALSE
+){
 	check_is_leprechaun()
 
 	type <- match.arg(type)
@@ -25,105 +29,146 @@ create_ui <- function(type = c("navbarPage", "fluidPage")){
 	# copy/replace file
 	tmp_read_replace_write(infile, outfile)
 
-	cli_alert_success("Creating {.file R/ui.R}")
 	lock_r("ui")
+	if(!quiet)
+		cli_alert_success("Creating {.file R/ui.R}")
+	
+	invisible()
 }
 
 #' Create Server
 #' 
 #' Create basic server function and file `server.R`.
 #' 
+#' @param quiet Whether to pring messages to the console.
+#' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @noRd 
 #' @keywords internal
-create_server <- function(){
+create_server <- function(quiet = FALSE){
 	check_is_leprechaun()
 	outfile <- c("R", "server.R")
 	infile <- pkg_file("template", outfile)
 	copy_file(infile, outfile)
-	cli_alert_success("Creating {.file R/server.R}")
+
 	lock_r("server")
+
+	if(!quiet)
+		cli_alert_success("Creating {.file R/server.R}")
+
+	invisible()
 }
 
 #' Create Assets
 #' 
 #' Create assets function and file `assets.R`.
 #' 
+#' @param quiet Whether to pring messages to the console.
+#' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @export 
-create_assets <- function(){
+create_assets <- function(quiet = FALSE){
 	check_is_leprechaun()
 	outfile <- c("R", "assets.R")
 	infile <- pkg_file("template", outfile)
 	tmp_read_replace_write(infile, outfile)
-	cli_alert_success("Creating {.file R/assets.R}")
 	lock_r("assets")
+
+	if(!quiet)
+		cli_alert_success("Creating {.file R/assets.R}")
+
+	invisible()
 }
 
 #' Create onLoad
 #' 
 #' Create `zzz.R` file containing `.onLoad` function.
 #' 
+#' @param quiet Whether to pring messages to the console.
+#' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @export 
-create_onload <- function(){
+create_onload <- function(quiet = FALSE){
 	check_is_leprechaun()
 	outfile <- c("R", "zzz.R")
 	infile <- pkg_file("template", outfile)
 	tmp_read_replace_write(infile, outfile)
-	cli_alert_success("Creating {.file R/zzz.R}")
 	lock_r("zzz")
+
+	if(!quiet)
+		cli_alert_success("Creating {.file R/zzz.R}")
+
+	invisible()
 }
 
 #' Create Run
-#' 
+#'
 #' Create `run.R` file to launch the app.
+#' 
+#' @param quiet Whether to pring messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' 
-#' @export 
-create_run <- function(){
+#' @noRd 
+#' @keywords internal 
+create_run <- function(quiet = FALSE){
 	check_is_leprechaun()
 	outfile <- c("R", "run.R")
 	infile <- pkg_file("template", outfile)
 	copy_file(infile, outfile)
-	cli_alert_success("Creating {.file R/run.R}")
 	lock_r("run")
+
+	if(!quiet)
+		cli_alert_success("Creating {.file R/run.R}")
+
+	invisible()
 }
 
 #' Create Utils
 #' 
 #' Create `utils.R` file containing helper functions.
 #' 
+#' @param quiet Whether to pring messages to the console.
+#' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @export 
-create_utils <- function(){
+create_utils <- function(quiet = FALSE){
 	check_is_leprechaun()
 	outfile <- c("R", "leprechaun-utils.R")
 	infile <- pkg_file("template", outfile)
 	copy_file(infile, outfile)
-	cli_alert_success("Creating {.file R/leprechaun-utils.R}")
-	lock_r("utils")
+	lock_r("leprechaun-utils")
+
+	if(!quiet)
+		cli_alert_success("Creating {.file R/leprechaun-utils.R}")
+	
+	invisible()
 }
 
 #' Create Image directory
 #' 
 #' Create the image directory within `inst`
 #' 
+#' @param quiet Whether to pring messages to the console.
+#' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_create
 #' 
 #' @noRd 
 #' @keywords internals
-create_dir_img <- function(){
+create_dir_img <- function(quiet = FALSE){
 	check_is_leprechaun()
 	dir_create("inst/img", recurse = TRUE)
 	file_create("inst/img/.gitkeep")
-	cli_alert_success("Creating {.file inst/img}")
+
+	if(!quiet)
+		cli_alert_success("Creating {.file inst/img}")
+
+	invisible()
 }
 
 #' Create Assets directory
@@ -131,16 +176,22 @@ create_dir_img <- function(){
 #' Create the assets directory within `inst`
 #' to store CSS, and JavaScript files.
 #' 
+#' @param quiet Whether to pring messages to the console.
+#' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_create
 #' 
 #' @noRd 
 #' @keywords internals
-create_dir_assets <- function(){
+create_dir_assets <- function(quiet = FALSE){
 	check_is_leprechaun()
 	dir_create("inst/assets", recurse = TRUE)
 	file_create("inst/assets/.gitkeep")
-	cli_alert_success("Creating {.file inst/assets}")
+
+	if(!quiet)
+		cli_alert_success("Creating {.file inst/assets}")
+
+	invisible()
 }
 
 #' Create Dev directory
@@ -148,14 +199,20 @@ create_dir_assets <- function(){
 #' Create dev directory to store (optional)
 #' development helper scripts.
 #' 
+#' @param quiet Whether to pring messages to the console.
+#' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_create
 #' 
 #' @noRd 
 #' @keywords internals
-create_dir_dev <- function(){
+create_dir_dev <- function(quiet = FALSE){
 	check_is_leprechaun()
 	dir_create("inst/dev", recurse = TRUE)
 	file_create("inst/dev/.gitkeep")
-	cli_alert_success("Creating {.file inst/dev}")
+
+	if(!quiet)
+		cli_alert_success("Creating {.file inst/dev}")
+
+	invisible()
 }

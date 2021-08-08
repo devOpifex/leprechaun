@@ -4,10 +4,12 @@
 \alias{use_js_utils}
 \title{JavaScript Utils}
 \usage{
-use_js_utils(overwrite = FALSE)
+use_js_utils(overwrite = FALSE, quiet = FALSE)
 }
 \arguments{
 \item{overwrite}{Whether to overwrite existing files.}
+
+\item{quiet}{Whether to print messages.}
 }
 \description{
 Add utility JavaScript function, e.g.: to hide or show

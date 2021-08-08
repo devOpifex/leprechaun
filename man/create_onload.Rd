@@ -4,7 +4,10 @@
 \alias{create_onload}
 \title{Create onLoad}
 \usage{
-create_onload()
+create_onload(quiet = FALSE)
+}
+\arguments{
+\item{quiet}{Whether to pring messages to the console.}
 }
 \description{
 Create \code{zzz.R} file containing \code{.onLoad} function.

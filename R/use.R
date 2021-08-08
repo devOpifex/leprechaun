@@ -4,6 +4,7 @@
 #' element in the DOM.
 #' 
 #' @param overwrite Whether to overwrite existing files.
+#' @param quiet Whether to print messages.
 #' 
 #' @note This requires a packer scaffold in place.
 #' 
@@ -11,7 +12,7 @@
 #' @importFrom cli cli_alert_success
 #' 
 #' @export 
-use_js_utils <- function(overwrite = FALSE){
+use_js_utils <- function(overwrite = FALSE, quiet = FALSE){
 	# checks
 	check_packer()
 	check_is_leprechaun()
@@ -29,14 +30,15 @@ use_js_utils <- function(overwrite = FALSE){
 
 	copy_file(
 		pkg_file("javascript", "javascript.R"),
-		c("R", "javascript.R")
+		c("R", "utils-js.R")
 	)
 
-	lock_r("javacscript")
-	lock_js("leprechaun-utils")
+	lock_use("js-utils")
 	
-	cli_alert_success("Added {.file srcjs/leprechaun-utils.js}")
-	cli_alert_success("Added {.file R/javascript.R}")
+	if(!quiet){
+		cli_alert_success("Added {.file srcjs/leprechaun-utils.js}")
+		cli_alert_success("Added {.file R/utils-js.R}")
+	}
 
 	# check if it is imported in the index
 	index_path <- "srcjs/index.js"
@@ -50,7 +52,8 @@ use_js_utils <- function(overwrite = FALSE){
 	if(any(grepl("leprechaun-utils.js", index)))
 		return(invisible())
 	
-	cli_alert_success("Added import statement to {.file srcjs/index.js}")
+	if(!quiet)
+		cli_alert_success("Added import statement to {.file srcjs/index.js}")
 	
 	index <- c(
 		"import { handleUtils } from './leprechaun-utils.js';", 
