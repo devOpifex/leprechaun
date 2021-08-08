@@ -14,7 +14,7 @@ These can be added with the `plugin_*` family of functions.
 
 <Note>
 Plugins are meant to facilitate making shiny work 
-with _other packages_.
+with <i>other packages</i>.
 </Note>
 
 ## Sass
@@ -35,7 +35,10 @@ leprechaun::plugin_sass()
 
 This creates a directory `scss` with two `.scss` files within it.
 Importantly it adds a script to `inst/dev` to generate the CSS.
-See [build](/guide/plugins#build) for more details.
+
+<Note type="tip">
+Requires running `leprechaun::build()`
+</Note>
 
 ## Packer
 
@@ -50,6 +53,10 @@ leprechaun::plugin_packer()
 This adds a script to `inst/dev` so that the 
 [build](/guide/plugins#build) process from leprechaun 
 bundles the JavaScript.
+
+<Note type="tip">
+Requires running `leprechaun::build()`
+</Note>
 
 ## Config
 

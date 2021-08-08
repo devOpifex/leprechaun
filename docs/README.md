@@ -11,15 +11,19 @@ It's not yet on CRAN, get it from Github.
 remotes::install_github("devOpifex/leprechaun")
 ```
 
-## Example
+## How it works
 
-Create a package, then from its root, scaffold a leprechaun
-app.
+From the root of a package, scaffold a leprechaun application.
+This generates basic code for a shiny application within the 
+package.
 
-```r
-usethis::create_package("myapp")
-leprechaun::scaffold()
-```
+Then, if more features are needed, you can use the `use_*` family
+of functions to selectively add them to your project. e.g.:
+to add utility JavaScript functions to hide, show, etc. elements
+in the DOM.
+Also, you can use the "plugins," functions that ease and 
+improve the integration of shiny with other packages, e.g.: to
+make use of sass to style the application.
 
 ## The elephant in the room
 
