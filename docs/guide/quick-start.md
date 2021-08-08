@@ -51,16 +51,16 @@ leprechaun::scaffold()
 
 ── Generating code ──
 
-ℹ Creating R/ui.R
-ℹ Creating R/assets.R
-ℹ Creating R/run.R
-ℹ Creating R/server.R
-ℹ Creating R/leprechaun-utils.R
-ℹ Creating R/zzz.R
+✔ Creating R/ui.R
+✔ Creating R/assets.R
+✔ Creating R/run.R
+✔ Creating R/server.R
+✔ Creating R/leprechaun-utils.R
+✔ Creating R/zzz.R
 
-ℹ Creating inst/dev
-ℹ Creating inst/assets
-ℹ Creating inst/img
+✔ Creating inst/dev
+✔ Creating inst/assets
+✔ Creating inst/img
 
 ── Ignoring files ──
 

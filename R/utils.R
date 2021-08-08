@@ -34,8 +34,8 @@ get_pkg_name <- function(){
 #' 
 #' @noRd 
 #' @keywords internal
-get_pkg_version <- function(){
-	as.character(utils::packageVersion("leprechaun"))
+get_pkg_version <- function(pkg = "leprechaun"){
+	as.character(utils::packageVersion(pkg))
 }
 
 #' Template Replace
@@ -51,6 +51,8 @@ tmp_replace <- function(content, module = NULL ){
 
 	if(!is.null(module))
 		content <- gsub("#MODULE#", module, content)
+
+	return(content)
 }
 
 #' @noRd 
@@ -81,7 +83,12 @@ tmp_read_replace_write <- function(infile, outfile, module = NULL){
 #' @noRd 
 #' @keywords internal
 read_lines <- function(...){
-	suppressWarnings(readLines(...))
+	tryCatch(
+		suppressWarnings(
+			readLines(...)
+		),
+		error = function(e) NULL
+	)
 }
 
 #' Collapse a Path

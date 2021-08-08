@@ -3,7 +3,7 @@
 #' Setup basic structure for sass and helper script for
 #' bundling.
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' @importFrom fs dir_copy file_copy
 #' @importFrom usethis use_build_ignore
 #' 
@@ -16,10 +16,11 @@ plugin_sass <- function(){
 	# copy files and script
 	dir_copy(pkg_file("scss"), "scss")
 	copy_file(pkg_file("dev", "sass.R"), c("inst", "dev", "sass.R"))
-	cli_alert_info("Creating {.file scss}")
-	cli_alert_info("Creating {.file inst/dev/sass.R}")
+	cli_alert_success("Creating {.file scss}")
+	cli_alert_success("Creating {.file inst/dev/sass.R}")
 	add_package("sass", type = "Suggests")
 	use_build_ignore("scss")
+	lock_plugin("sass", get_pkg_version("sass"))
 }
 
 #' Check that scss exists
@@ -45,7 +46,7 @@ check_scss <- function(){
 #' 
 #' @note This requires a scaffold of packer already in place.
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' 
 #' @export 
 plugin_packer <- function(){
@@ -55,8 +56,9 @@ plugin_packer <- function(){
 
 	# copy files and script
 	copy_file(pkg_file("dev", "packer.R"), c("inst", "dev", "packer.R"))
-	cli_alert_info("Creating {.file inst/dev/packer.R}")
+	cli_alert_success("Creating {.file inst/dev/packer.R}")
 	add_package("packer", type = "Suggests")
+	lock_plugin("packer", get_pkg_version("packer"))
 }
 
 #' Check Whether it is a packer project
@@ -89,7 +91,7 @@ check_packer <- function(){
 #' 
 #' Setup a configuration file and helper functions.
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' 
 #' @export 
 plugin_config <- function(){
@@ -105,9 +107,10 @@ plugin_config <- function(){
 		pkg_file("config", "config.yml"),
 		c("inst", "config.yml")
 	)
-	cli_alert_info("Creating {.file inst/config.R}")
-	cli_alert_info("Creating {.file inst/config.yml}")
+	cli_alert_success("Creating {.file inst/config.R}")
+	cli_alert_success("Creating {.file inst/config.yml}")
 	add_package("yaml")
+	lock_plugin("config", get_pkg_version("config"))
 }
 
 #' Check that config does not exists

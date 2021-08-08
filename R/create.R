@@ -6,7 +6,7 @@
 #' Used to dynamically determine the file required
 #' and its path.
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' 
 #' @noRd 
 #' @keywords internal
@@ -25,15 +25,15 @@ create_ui <- function(type = c("navbarPage", "fluidPage")){
 	# copy/replace file
 	tmp_read_replace_write(infile, outfile)
 
-	cli_alert_info("Creating {.file R/ui.R}")
-	lock_change("ui")
+	cli_alert_success("Creating {.file R/ui.R}")
+	lock_r("ui")
 }
 
 #' Create Server
 #' 
 #' Create basic server function and file `server.R`.
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' 
 #' @noRd 
 #' @keywords internal
@@ -42,15 +42,15 @@ create_server <- function(){
 	outfile <- c("R", "server.R")
 	infile <- pkg_file("template", outfile)
 	copy_file(infile, outfile)
-	cli_alert_info("Creating {.file R/server.R}")
-	lock_change("server")
+	cli_alert_success("Creating {.file R/server.R}")
+	lock_r("server")
 }
 
 #' Create Assets
 #' 
 #' Create assets function and file `assets.R`.
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' 
 #' @export 
 create_assets <- function(){
@@ -58,15 +58,15 @@ create_assets <- function(){
 	outfile <- c("R", "assets.R")
 	infile <- pkg_file("template", outfile)
 	tmp_read_replace_write(infile, outfile)
-	cli_alert_info("Creating {.file R/assets.R}")
-	lock_change("assets")
+	cli_alert_success("Creating {.file R/assets.R}")
+	lock_r("assets")
 }
 
 #' Create onLoad
 #' 
 #' Create `zzz.R` file containing `.onLoad` function.
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' 
 #' @export 
 create_onload <- function(){
@@ -74,15 +74,15 @@ create_onload <- function(){
 	outfile <- c("R", "zzz.R")
 	infile <- pkg_file("template", outfile)
 	tmp_read_replace_write(infile, outfile)
-	cli_alert_info("Creating {.file R/zzz.R}")
-	lock_change("zzz")
+	cli_alert_success("Creating {.file R/zzz.R}")
+	lock_r("zzz")
 }
 
 #' Create Run
 #' 
 #' Create `run.R` file to launch the app.
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' 
 #' @export 
 create_run <- function(){
@@ -90,15 +90,15 @@ create_run <- function(){
 	outfile <- c("R", "run.R")
 	infile <- pkg_file("template", outfile)
 	copy_file(infile, outfile)
-	cli_alert_info("Creating {.file R/run.R}")
-	lock_change("run")
+	cli_alert_success("Creating {.file R/run.R}")
+	lock_r("run")
 }
 
 #' Create Utils
 #' 
 #' Create `utils.R` file containing helper functions.
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' 
 #' @export 
 create_utils <- function(){
@@ -106,15 +106,15 @@ create_utils <- function(){
 	outfile <- c("R", "leprechaun-utils.R")
 	infile <- pkg_file("template", outfile)
 	copy_file(infile, outfile)
-	cli_alert_info("Creating {.file R/leprechaun-utils.R}")
-	lock_change("utils")
+	cli_alert_success("Creating {.file R/leprechaun-utils.R}")
+	lock_r("utils")
 }
 
 #' Create Image directory
 #' 
 #' Create the image directory within `inst`
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_create
 #' 
 #' @noRd 
@@ -123,7 +123,7 @@ create_dir_img <- function(){
 	check_is_leprechaun()
 	dir_create("inst/img", recurse = TRUE)
 	file_create("inst/img/.gitkeep")
-	cli_alert_info("Creating {.file inst/img}")
+	cli_alert_success("Creating {.file inst/img}")
 }
 
 #' Create Assets directory
@@ -131,7 +131,7 @@ create_dir_img <- function(){
 #' Create the assets directory within `inst`
 #' to store CSS, and JavaScript files.
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_create
 #' 
 #' @noRd 
@@ -140,7 +140,7 @@ create_dir_assets <- function(){
 	check_is_leprechaun()
 	dir_create("inst/assets", recurse = TRUE)
 	file_create("inst/assets/.gitkeep")
-	cli_alert_info("Creating {.file inst/assets}")
+	cli_alert_success("Creating {.file inst/assets}")
 }
 
 #' Create Dev directory
@@ -148,7 +148,7 @@ create_dir_assets <- function(){
 #' Create dev directory to store (optional)
 #' development helper scripts.
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_create
 #' 
 #' @noRd 
@@ -157,5 +157,5 @@ create_dir_dev <- function(){
 	check_is_leprechaun()
 	dir_create("inst/dev", recurse = TRUE)
 	file_create("inst/dev/.gitkeep")
-	cli_alert_info("Creating {.file inst/dev}")
+	cli_alert_success("Creating {.file inst/dev}")
 }

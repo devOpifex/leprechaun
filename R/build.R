@@ -3,7 +3,7 @@
 #' Runs the various scripts that were created with 
 #' `setup` functions.
 #' 
-#' @importFrom cli cli_alert_info cli_alert_warning
+#' @importFrom cli cli_alert_success cli_alert_warning
 #' 
 #' @export 
 build <- function(){
@@ -15,7 +15,7 @@ build <- function(){
 	}
 
 	sapply(files, function(file){
-		cli_alert_info("Running {.file {file}}")
+		cli_alert_success("Running {.file {file}}")
 		source(file.path("inst", "dev", file))
 	})
 	invisible()

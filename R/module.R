@@ -7,7 +7,7 @@
 #' functions and file.
 #' 
 #' @importFrom fs file_exists
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' 
 #' @export 
 add_module <- function(name){
@@ -23,7 +23,7 @@ add_module <- function(name){
 			sprintf("File `%s` already exists.", path)
 		)
 
-	cli_alert_info("Creating {.file {path}}")
+	cli_alert_success("Creating {.file {path}}")
 	tmp_read_replace_write(
 		pkg_file("module", "module.R"),
 		path,

@@ -8,6 +8,7 @@
 #' @note This requires a packer scaffold in place.
 #' 
 #' @importFrom fs file_exists
+#' @importFrom cli cli_alert_success
 #' 
 #' @export 
 use_js_utils <- function(overwrite = FALSE){
@@ -31,16 +32,26 @@ use_js_utils <- function(overwrite = FALSE){
 		c("R", "javascript.R")
 	)
 
-	lock_change("js-utils")
+	lock_r("javacscript")
+	lock_js("leprechaun-utils")
+	
+	cli_alert_success("Added {.file srcjs/leprechaun-utils.js}")
+	cli_alert_success("Added {.file R/javascript.R}")
 
 	# check if it is imported in the index
 	index_path <- "srcjs/index.js"
 	index <- read_lines(index_path)
 
+	# file not found
+	if(!length(index))
+		return(invisible())
+
 	# if it's already imported we just skip it
 	if(any(grepl("leprechaun-utils.js", index)))
 		return(invisible())
-
+	
+	cli_alert_success("Added import statement to {.file srcjs/index.js}")
+	
 	index <- c(
 		"import { handleUtils } from './leprechaun-utils.js';", 
 		index,

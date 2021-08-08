@@ -7,7 +7,7 @@ LOCK_FILE <- ".leprechaun"
 #' be useful in the future to correctly update 
 #' leprechaun projects.
 #' 
-#' @importFrom cli cli_alert_info
+#' @importFrom cli cli_alert_success
 #' @importFrom jsonlite write_json
 #' 
 #' @noRd 
@@ -18,7 +18,7 @@ lock_create <- function(){
 		version = get_pkg_version()
 	)
 	lock_write(conf)
-	cli_alert_info("Creating {.file {LOCK_FILE}}")
+	cli_alert_success("Creating {.file {LOCK_FILE}}")
 }
 
 #' @importFrom fs file_exists
@@ -49,8 +49,26 @@ lock_write <- function(conf){
 #' 
 #' @noRd 
 #' @keywords internal
-lock_change <- function(key, value = get_pkg_version()) {
+lock_r <- function(key, value = get_pkg_version()) {
+	lock_change(key, value, parent = "r")
+}
+
+#' @noRd 
+#' @keywords internal
+lock_js <- function(key, value = get_pkg_version()) {
+	lock_change(key, value, parent = "js")
+}
+
+#' @noRd 
+#' @keywords internal
+lock_plugin <- function(key, value = get_pkg_version()) {
+	lock_change(key, value, parent = "plugin")
+}
+
+#' @noRd 
+#' @keywords internal
+lock_change <- function(key, value, parent = "r"){
 	conf <- lock_read()
-	conf[["files"]][[key]] <- value
+	conf[[parent]][[key]] <- value
 	lock_write(conf)
 }
