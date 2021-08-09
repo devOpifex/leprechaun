@@ -17,6 +17,30 @@ remotes::install_github("devOpifex/leprechaun")
 Then, from the root of your application using leprechaun,
 run `leprechaun::update_scaffold()`.
 
+```
+── Updating leprechaun application ─────────────────
+
+ℹ Will attempt to bump code from version 0.1.0.900 to 0.1.0.9000
+
+── R files ──
+
+• R/ui.R
+• R/assets.R
+• R/run.R
+• R/server.R
+• R/leprechaun-utils.R
+• R/zzz.R
+
+── Uses ──
+
+── Plugins ──
+
+• packer
+• config
+
+Do you want to proceed? (y/n)
+```
+
 <Note type="danger">
 Always back-up or commit your code before updating!
 </Note>

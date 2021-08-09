@@ -32,6 +32,7 @@ leprechaun::plugin_sass()
 ℹ Creating inst/dev/sass.R
 ✔ Adding 'sass' to Suggests in DESCRIPTION
 ✔ Adding '^scss$' to '.Rbuildignore'
+! This requires `leprechaun::build()`
 ```
 
 This creates a directory `scss` with two `.scss` files within it.
@@ -51,6 +52,12 @@ leprechaun.
 leprechaun::plugin_packer()
 ```
 
+```
+✔ Creating inst/dev/packer.R
+✔ Adding 'packer' to Suggests in DESCRIPTION
+! This requires `leprechaun::build()`
+```
+
 This adds a script to `inst/dev` so that the 
 [build](/guide/plugins#build) process from leprechaun 
 bundles the JavaScript.
@@ -67,4 +74,10 @@ to interact with it.
 
 ```r
 leprechaun::plugin_config()
+```
+
+```
+✔ Creating inst/config.R
+✔ Creating inst/config.yml
+✔ Adding 'yaml' to Imports in DESCRIPTION
 ```

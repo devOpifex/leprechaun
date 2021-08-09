@@ -94,6 +94,8 @@ use_html_utils <- function(overwrite = FALSE, quiet = FALSE){
 		c("R", "html-utils.R")
 	)
 
+	add_package("htmltools")
+
 	if(!quiet)
 		cli_alert_success("Creating {.file R/html-utils.R}")
 
