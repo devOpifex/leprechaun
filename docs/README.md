@@ -1,4 +1,4 @@
-<img height="300" src="_assets/leprechaun.png" />
+<img height="250" src="_assets/leprechaun.png" />
 
 Code generator for _lean_ shiny applications as packages.
 

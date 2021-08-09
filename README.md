@@ -3,7 +3,9 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-# leprechaun
+<img src="docs/_assets/leprechaun.png" height=200>
+
+[website](https://leprechaun.opifex.org)
 
 Leprechaun is allows you to generate _lean_ and robust 
 [shiny](http://shiny.rstudio.com/) applications.
