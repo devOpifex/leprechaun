@@ -16,5 +16,6 @@ Add utility JavaScript function, e.g.: to hide or show
 element in the DOM.
 }
 \note{
-This requires a packer scaffold in place.
+This requires \link{plugin_packer}.
+Also, it will require using \link{build}.
 }

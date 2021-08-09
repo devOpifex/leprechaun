@@ -14,4 +14,5 @@ Setup a packer script to easily bundle the JavaScipt.
 }
 \note{
 This requires a scaffold of packer already in place.
+Also, this will require using \link{build}.
 }

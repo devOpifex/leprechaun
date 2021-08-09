@@ -13,3 +13,6 @@ plugin_sass(quiet = FALSE)
 Setup basic structure for sass and helper script for
 bundling.
 }
+\note{
+This will require using \link{build}.
+}

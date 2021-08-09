@@ -5,6 +5,8 @@
 #' 
 #' @param quiet Whether to print messages.
 #' 
+#' @note This will require using [build].
+#' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_copy file_copy
 #' @importFrom usethis use_build_ignore
@@ -63,6 +65,7 @@ check_scss <- function(){
 #' @param quiet Whether to print messages.
 #' 
 #' @note This requires a scaffold of packer already in place.
+#' Also, this will require using [build].
 #' 
 #' @importFrom cli cli_alert_success
 #' 

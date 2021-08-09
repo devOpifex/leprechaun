@@ -136,7 +136,8 @@ update_use <- function(){
 
 		switch(
 			names(confuse)[i],
-			"js-utils" = update_js_utils()
+			"js-utils" = update_js_utils(),
+			"html-utils" = update_html_utils()
 		)
 	}
 }
@@ -148,6 +149,15 @@ update_use <- function(){
 update_js_utils <- function(){
 	cli_alert_info("Updating {.file R/utils-js.R} and {.file srcjs/leprechaun-utils.js}")
 	use_js_utils(overwrite = TRUE, quiet = TRUE)
+}
+
+#' Update HTML Utils
+#' 
+#' @noRd 
+#' @keywords internal
+update_html_utils <- function(){
+	cli_alert_info("Updating {.file R/html-utils.R}")
+	use_html_utils(overwrite = TRUE, quiet = TRUE)
 }
 
 #' Update R

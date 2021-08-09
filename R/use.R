@@ -6,7 +6,8 @@
 #' @param overwrite Whether to overwrite existing files.
 #' @param quiet Whether to print messages.
 #' 
-#' @note This requires a packer scaffold in place.
+#' @note This requires [plugin_packer].
+#' Also, it will require using [build].
 #' 
 #' @importFrom fs file_exists
 #' @importFrom cli cli_alert_success
@@ -39,8 +40,8 @@ use_js_utils <- function(overwrite = FALSE, quiet = FALSE){
 	lock_use("js-utils")
 	
 	if(!quiet){
-		cli_alert_success("Added {.file srcjs/leprechaun-utils.js}")
-		cli_alert_success("Added {.file R/utils-js.R}")
+		cli_alert_success("Creating {.file srcjs/leprechaun-utils.js}")
+		cli_alert_success("Creating {.file R/utils-js.R}")
 	}
 
 	# check if it is imported in the index
@@ -66,4 +67,35 @@ use_js_utils <- function(overwrite = FALSE, quiet = FALSE){
 	writeLines(index, con = index_path)
 
 	require_build()
+}
+
+#' Htmltools Utils
+#' 
+#' Add htmltools utility functions, e.g.: shorthands to
+#' create columns.
+#' 
+#' @param overwrite Whether to overwrite existing files.
+#' @param quiet Whether to print messages.
+#' 
+#' @export 
+use_html_utils <- function(overwrite = FALSE, quiet = FALSE){
+	# check
+	check_is_leprechaun()
+
+	if(!overwrite && file_exists("R/html-utils.R"))
+		stop(
+			"Files already exists. Use `overwrite = TRUE` to update."
+		)
+	
+	lock_use("html-utils")
+
+	copy_file(
+		pkg_file("htmltools", "utils.R"),
+		c("R", "html-utils.R")
+	)
+
+	if(!quiet)
+		cli_alert_success("Creating {.file R/html-utils.R}")
+
+	invisible()
 }
