@@ -17,17 +17,20 @@ Requires a packer scaffold in place.
 These include function show or hide an element from the DOM 
 and more.
 
+This will add functions such as `show`, `hide`, and `toggle`
+to control the visibility of elements.
+
 ```r
 library(shiny)
 
 ui <- fluidPage(
-	actionButton("show", "Show"),
+	actionButton("toggle", "Toggle"),
 	p(id = "element", "Hello", style = "display:none;")	
 )
 
 server <- function(input, output, session){
-	observeEvent(input$show, {
-		show("element")
+	observeEvent(input$toggle, {
+		toggle("element")
 	})
 }
 
@@ -42,11 +45,11 @@ Requires running <code>leprechaun::build()</code>
 
 You can add HTML utility functions with `use_html_utils`.
 
+This includes functions to create columns, badges, etc.
+
 ```r
 fluidRow(
-	col4("Hello,"),
-	col8("world!")
+	col4(badge("hello")),
+	col8("world")
 )
 ```
-
-This includes functions to create columns, badges, etc.

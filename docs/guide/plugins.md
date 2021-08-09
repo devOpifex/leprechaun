@@ -39,7 +39,7 @@ This creates a directory `scss` with two `.scss` files within it.
 Importantly it adds a script to `inst/dev` to generate the CSS.
 
 <Note type="tip">
-Requires running `leprechaun::build()`
+Requires running <code>leprechaun::build()</code>
 </Note>
 
 ## Packer
@@ -63,7 +63,7 @@ This adds a script to `inst/dev` so that the
 bundles the JavaScript.
 
 <Note type="tip">
-Requires running `leprechaun::build()`
+Requires running <code>leprechaun::build()</code>
 </Note>
 
 ## Config
