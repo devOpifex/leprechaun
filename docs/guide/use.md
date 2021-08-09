@@ -48,3 +48,5 @@ fluidRow(
 	col8("world!")
 )
 ```
+
+This includes functions to create columns, badges, etc.
