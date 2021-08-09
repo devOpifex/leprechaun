@@ -78,3 +78,48 @@ col11 <- function(...){
 col12 <- function(...){
 	column(12, ...)
 }
+
+#' Badge
+#' 
+#' Add a badge.
+#' 
+#' @param ... Content of the badge.
+#' @param class Any additional class.
+#' @param color Color of the badge.
+#' @param pill Whether to create a pill badge.
+#' @param .tag Tag to use (`span`, or `a`)
+#' 
+#' @keywords internal
+badge <- function(
+	..., 
+	class = "", 
+	color = "dark", 
+	pill = FALSE,
+	.tag = shiny::span
+){
+	cl <- sprintf("%s badge badge-%s", class, color)
+
+	if(pill)
+		cl <- sprintf("%s badge-pill", cl)
+
+	.tag(..., class = cl)
+}
+
+#' Alert
+#' 
+#' Create a bootstrap 4 alert.
+#' 
+#' @param ... Content of the alert.
+#' @param class Any additional class.
+#' @param color Color of the alert.
+#' 
+#' @keywords internal
+alert <- function(..., class = "", color = "primary"){
+	cl <- sprintf("%s alert alert-%s", class, color)
+
+	div(
+		class = cl,
+		role = "alert",
+		...
+	)
+}

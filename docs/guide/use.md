@@ -37,3 +37,14 @@ shinyApp(ui, server)
 <Note type="tip">
 Requires running <code>leprechaun::build()</code>
 </Note>
+
+## HTML
+
+You can add HTML utility functions with `use_html_utils`.
+
+```r
+fluidRow(
+	col4("Hello,"),
+	col8("world!")
+)
+```
