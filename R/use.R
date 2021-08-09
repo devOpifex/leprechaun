@@ -64,4 +64,6 @@ use_js_utils <- function(overwrite = FALSE, quiet = FALSE){
 		"handleUtils();"
 	)
 	writeLines(index, con = index_path)
+
+	require_build()
 }

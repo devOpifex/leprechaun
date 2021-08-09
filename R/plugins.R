@@ -31,6 +31,8 @@ plugin_sass <- function(quiet = FALSE){
 			sass = get_pkg_version("sass")
 		)
 	)
+
+	require_build()
 }
 
 plugin_sass_overwritable <- function(){
@@ -83,6 +85,8 @@ plugin_packer <- function(quiet = FALSE){
 			packer = get_pkg_version("packer")
 		)
 	)
+
+	require_build()
 }
 
 #' Check Whether it is a packer project

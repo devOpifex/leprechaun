@@ -168,3 +168,19 @@ add_package <- function(package, type = "Imports", ...){
 		use_package(package, type, ...)
 	)
 }
+
+#' Show Warning Require Build
+#' 
+#' Displays a warning to communicate that the
+#' leprechaun build step is required to run this.
+#' 
+#' @importFrom cli cli_alert_warning
+#' 
+#' @noRd 
+#' @keywords internal
+require_build <- function(){
+	cli_alert_warning(
+		"This requires {.code leprechaun::build()}"
+	)
+	invisible()
+}
