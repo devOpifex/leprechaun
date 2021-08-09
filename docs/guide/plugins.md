@@ -14,7 +14,8 @@ These can be added with the `plugin_*` family of functions.
 
 <Note>
 Plugins are meant to facilitate making shiny work 
-with <i>other packages</i>.
+with <i>other packages</i> and thus bring additional
+dependencies.
 </Note>
 
 ## Sass
@@ -67,17 +68,3 @@ to interact with it.
 ```r
 leprechaun::plugin_config()
 ```
-
-## Build
-
-Some plugins may require a build step for compiling, transpiling,
-minifiying, etc. Leprechaun places these scripts in the directory
-`inst/dev`.
-
-The leprechaun function `leprechaun::build()` can be used to run
-those scripts.
-
-<Note type="warning">
-Do not call this function from within the app.
-It helps build things, not run them.
-</Note>

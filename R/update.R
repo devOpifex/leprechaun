@@ -238,7 +238,7 @@ confirm_update <- function(){
 	cli_h1("Updating leprechaun application")
 	cat("\n")
 	cli_alert_info(
-		"Bumping version {.field {conf$version}} to {.field {get_pkg_version()}}"
+		"Will attempt to bump code from version {.field {conf$version}} to {.field {get_pkg_version()}}"
 	)
 
 	cli_h2("R files")
@@ -258,6 +258,9 @@ confirm_update <- function(){
 	ask()	
 }
 
+#' Prompt the user for confirmation update
+#' 
+#' @keywords internal
 ask <- function(){
 	response <- readline("Do you want to proceed? (y/n)\n")
 	
