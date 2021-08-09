@@ -27,18 +27,18 @@ plugin_sass <- function(quiet = FALSE){
 	plugin_sass_overwritable()
 	add_package("sass", type = "Suggests")
 	use_build_ignore("scss")
-	lock_plugin(
-		"sass", list(
-			leprechaun = get_pkg_version(),
-			sass = get_pkg_version("sass")
-		)
-	)
 
 	require_build()
 }
 
 plugin_sass_overwritable <- function(){
 	copy_file(pkg_file("dev", "sass.R"), c("inst", "dev", "sass.R"))
+	lock_plugin(
+		"sass", list(
+			leprechaun = get_pkg_version(),
+			sass = get_pkg_version("sass")
+		)
+	)
 }
 
 #' Check that scss exists
@@ -144,18 +144,18 @@ plugin_config <- function(quiet = FALSE){
 	}
 
 	add_package("yaml")
-	lock_plugin(
-		"config", list(
-			leprechaun = get_pkg_version(),
-			config = get_pkg_version("config")
-		)
-	)
 }
 
 plugin_config_overwritable <- function(){
 	tmp_read_replace_write(
 		pkg_file("config", "config.R"),
 		"R/config.R"
+	)
+	lock_plugin(
+		"config", list(
+			leprechaun = get_pkg_version(),
+			config = get_pkg_version("config")
+		)
 	)
 }
 

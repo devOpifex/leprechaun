@@ -8,7 +8,7 @@
 #' 
 #' @param force Force update, ignore safety checks.
 #' 
-#' @importFrom cli cli_alert_success cli_alert_warning
+#' @importFrom cli cli_alert_success cli_alert_warning cli_alert_danger
 #' 
 #' @export 
 update_scaffold <- function(force = FALSE){
@@ -24,6 +24,13 @@ update_scaffold <- function(force = FALSE){
 		return(invisible())
 	}
 
+	proceed <- confirm_update()
+
+	if(!proceed){
+		cli_alert_danger("Aborting update")
+		return()
+	}
+
 	cli_alert_success(
 		"Updating to leprechaun version {.field {get_pkg_version()}}"
 	)
@@ -31,6 +38,7 @@ update_scaffold <- function(force = FALSE){
 	update_r()
 	update_use()
 	update_main()
+	update_plugins()
 
 	invisible()
 }
@@ -67,7 +75,7 @@ update_plugins <- function(){
 #' @keywords internal
 #' @importFrom cli cli_alert_info
 update_plugin_config <- function(){
-	cli_alert_info("Updating {.file R.R}")
+	cli_alert_info("Updating {.file R/config.R}")
 	plugin_config_overwritable()
 }
 
@@ -210,4 +218,51 @@ update_assets <- function(){
 update_utils <- function(){
 	cli_alert_info("Updating {.file R/leprechaun-utils.R}")
 	create_utils(TRUE)
+}
+
+#' Confirm Update
+#' 
+#' Confirm with user that updates need to nbe made.
+#' Prints useful messages to decide whether to update.
+#' 
+#' @return Boolean indicating whether the user wants to
+#' proceed.
+#' 
+#' @importFrom cli cli_h1 cli_alert_info cli_h2 cli_li
+#' 
+#' @noRd 
+#' @keywords internal
+confirm_update <- function(){
+	conf <- lock_read()
+
+	cli_h1("Updating leprechaun application")
+	cat("\n")
+	cli_alert_info(
+		"Bumping version {.field {conf$version}} to {.field {get_pkg_version()}}"
+	)
+
+	cli_h2("R files")
+	li <- names(conf$r)
+	li <- paste0("R/", li, ".R")
+	cli_li(li)
+
+	cli_h2("Uses")
+	li <- names(conf$uses)
+	cli_li(li)
+
+	cli_h2("Plugins")
+	li <- names(conf$plugins)
+	cli_li(li)
+	cat("\n")
+
+	ask()	
+}
+
+ask <- function(){
+	response <- readline("Do you want to proceed? (y/n)\n")
+	
+	if(response != "y")
+		return(FALSE)
+
+	TRUE
 }
