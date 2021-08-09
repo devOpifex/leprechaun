@@ -115,3 +115,20 @@ make_selector <- function(selector, process_selector = TRUE){
 
 	sprintf("#%s", selector)
 }
+
+#' Evaluate
+#' 
+#' Evaluate JavaScript code.
+#' 
+#' @param code
+#' 
+#' @keywords internal
+eval_js <- function(
+	code,
+	session = shiny::getDefaultReactiveDomain()
+){
+	if(missing(code))
+		stop("Missing `code`", call. = FALSE)
+
+	session$sendCustomMessage('leprechaun-eval', list(code = code))
+}

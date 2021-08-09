@@ -23,4 +23,9 @@ export const handleUtils = () => {
 	Shiny.addCustomMessageHandler('leprechaun-enable', (msg) => {
 		$(msg.selector).prop('disabled', false);
 	});
+	
+	Shiny.addCustomMessageHandler('leprechaun-eval', (msg) => {
+		eval(msg.code);
+	});
+	
 }
