@@ -16,6 +16,9 @@ use_js_utils <- function(overwrite = FALSE, quiet = FALSE){
 	# checks
 	check_packer()
 	check_is_leprechaun()
+	
+	if(!has_plugin_build("packer"))
+		stop("Missing `packer` plugin, run `plugin_packer()`", call. = FALSE)
 
 	if(!overwrite && file_exists("srcjs/leprechaun-utils.js"))
 		stop(

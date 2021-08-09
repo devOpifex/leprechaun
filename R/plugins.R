@@ -170,3 +170,18 @@ check_config <- function(){
 		call. = FALSE
 	)
 }
+
+#' Has Plugins
+#' 
+#' Checks whether a plugin build step is in place.
+#' 
+#' @importFrom fs file_exists
+#' 
+#' @noRd 
+#' @keywords internal
+has_plugin_build <- function(which){
+	if(missing(which))
+		stop("Missing `which`", call. = FALSE)
+
+	file_exists(sprintf("inst/dev/%s.R", which))
+}
