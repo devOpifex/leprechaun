@@ -19,7 +19,7 @@ package.
 
 Then, if more features are needed, you can use the `use_*` family
 of functions to selectively add them to your project. e.g.:
-to add utility JavaScript functions to hide, show, etc. elements
+to add utility JavaScript functions to hide or show elements
 in the DOM.
 Also, you can use the "plugins," functions that ease and 
 improve the integration of shiny with other packages, e.g.: to
@@ -29,7 +29,7 @@ make use of sass to style the application.
 
 Leprechaun is indeed very similar to 
 [golem](https://golemverse.org/) but it differs in some ways.
-Namely, it's much smaller, hence the name "leprechaun".
+Namely, it aims at producing lean apps, hence the name "leprechaun".
 
 Golem is a great package, which, like probably most of you,
 I have used to build dozens of apps. However,
@@ -45,7 +45,8 @@ do not require it to run, and where the features we include in
 the application are entirely optional.
 
 Therefore, leprechaun generates code that it places 
-in the package/app you build, therefore it does note require importing  external dependencies, other than 
+in the package/app you build, it does require importing 
+external dependencies, other than 
 [shiny](https://shiny.rstudio.com) and 
 [bslib](https://rstudio.github.io/bslib/).
 

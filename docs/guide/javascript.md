@@ -49,8 +49,8 @@ packer::scaffold_leprechaun()
 
 ── Scaffold built ──
 
-ℹ Run `leprechaun::plugin_packer()`
 ℹ Run `bundle` to build the JavaScript files
+ℹ Run `leprechaun::plugin_packer()`
 ```
 
 One of the last messages reminds us to add the plugin for packer,
