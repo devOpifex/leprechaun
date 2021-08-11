@@ -101,3 +101,36 @@ use_html_utils <- function(overwrite = FALSE, quiet = FALSE){
 
 	invisible()
 }
+
+#' Endpoints
+#' 
+#' Add utility functions to create and serve
+#' session-specific endpoints.
+#' 
+#' @param overwrite Whether to overwrite existing files.
+#' @param quiet Whether to print messages.
+#' 
+#' @export 
+use_endpoint_utils <- function(overwrite = FALSE, quiet = FALSE){
+	# check
+	check_is_leprechaun()
+
+	if(!overwrite && file_exists("R/endpoint-utils.R"))
+		stop(
+			"Files already exists. Use `overwrite = TRUE` to update."
+		)
+	
+	lock_use("endpoint-utils")
+
+	copy_file(
+		pkg_file("endpoints", "api.R"),
+		c("R", "endpoint-utils.R")
+	)
+
+	add_package("jsonlite")
+
+	if(!quiet)
+		cli_alert_success("Creating {.file R/endpoint-utils.R}")
+
+	invisible()
+}

@@ -25,5 +25,6 @@ Argument      |Description
 ## Note
 
 This requires a scaffold of packer already in place.
+ Also, this will require using [build](#build) .
 
 

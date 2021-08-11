@@ -145,7 +145,8 @@ update_use <- function(){
 		switch(
 			names(confuse)[i],
 			"js-utils" = update_js_utils(),
-			"html-utils" = update_html_utils()
+			"html-utils" = update_html_utils(),
+			"endpoint-utils" = update_endpoint_utils()
 		)
 	}
 }
@@ -165,6 +166,15 @@ update_js_utils <- function(){
 #' @keywords internal
 update_html_utils <- function(){
 	cli_alert_info("Updating {.file R/html-utils.R}")
+	use_html_utils(overwrite = TRUE, quiet = TRUE)
+}
+
+#' Update Endpoint Utils
+#' 
+#' @noRd 
+#' @keywords internal
+update_endpoint_utils <- function(){
+	cli_alert_info("Updating {.file R/endpoint-utils.R}")
 	use_html_utils(overwrite = TRUE, quiet = TRUE)
 }
 

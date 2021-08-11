@@ -26,6 +26,7 @@ Argument      |Description
 
 ## Note
 
-This requires a packer scaffold in place.
+This requires [plugin_packer](#pluginpacker) .
+ Also, it will require using [build](#build) .
 
 
