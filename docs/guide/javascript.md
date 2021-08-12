@@ -27,7 +27,7 @@ packer::scaffold_leprechaun()
 ```
 
 ```
-── Scaffolding leprechaun ───────────────────────────────────────────────────────────── 
+── Scaffolding leprechaun ─────────────────────────────────────────────────── 
 ✔ Initialiased npm
 ✔ webpack, webpack-cli, webpack-merge installed with scope "dev…
 ✔ Added npm scripts
@@ -50,14 +50,14 @@ packer::scaffold_leprechaun()
 ── Scaffold built ──
 
 ℹ Run `bundle` to build the JavaScript files
-ℹ Run `leprechaun::plugin_packer()`
+ℹ Run `leprechaun::use_packer()`
 ```
 
-One of the last messages reminds us to add the plugin for packer,
-let's go ahead and do that.
+One of the last messages reminds us to run the `use_` function
+for packer, let's go ahead and do that.
 
 ```r
-leprechaun::plugin_packer()
+leprechaun::use_packer()
 ```
 
 The packer scaffold created, amongst other files, a `srcjs`
@@ -83,7 +83,7 @@ This will make it such that loading the application will send the
 message to the front-end and display the alert.
 
 But first, we need to bundle the JavaScript, thanks to the packer 
-plugin this can be done with the `leprechaun::build` function.
+feature this can be done with the `leprechaun::build` function.
 
 ```r
 leprechaun::build()

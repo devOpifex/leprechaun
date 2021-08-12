@@ -18,9 +18,9 @@ Then, from the root of your application using leprechaun,
 run `leprechaun::update_scaffold()`.
 
 ```
-── Updating leprechaun application ─────────────────
+── Updating leprechaun application ─────────────────────────────
 
-ℹ Will attempt to bump code from version 0.1.0.900 to 0.1.0.9000
+ℹ Will attempt to bump code from version 0.1.0 to 0.2.0
 
 ── R files ──
 
@@ -33,12 +33,13 @@ run `leprechaun::update_scaffold()`.
 
 ── Uses ──
 
-── Plugins ──
-
 • packer
 • config
+• sass
+• html-utils
+• endpoint-utils
 
-Do you want to proceed? (y/n)
+Do you want to proceed? (y/n) 
 ```
 
 <Note type="danger">

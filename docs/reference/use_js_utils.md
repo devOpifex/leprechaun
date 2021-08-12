@@ -26,7 +26,7 @@ Argument      |Description
 
 ## Note
 
-This requires [plugin_packer](#pluginpacker) .
+This requires [use_packer](#usepacker) .
  Also, it will require using [build](#build) .
 
 

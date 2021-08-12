@@ -6,7 +6,7 @@
 #' @param overwrite Whether to overwrite existing files.
 #' @param quiet Whether to print messages.
 #' 
-#' @note This requires [plugin_packer].
+#' @note This requires [use_packer].
 #' Also, it will require using [build].
 #' 
 #' @importFrom fs file_exists
@@ -19,7 +19,7 @@ use_js_utils <- function(overwrite = FALSE, quiet = FALSE){
 	check_is_leprechaun()
 	
 	if(!has_build("packer"))
-		stop("Missing `packer` plugin, run `plugin_packer()`", call. = FALSE)
+		stop("Missing `packer`, run `use_packer()`", call. = FALSE)
 
 	if(!overwrite && file_exists("srcjs/leprechaun-utils.js"))
 		stop(
@@ -161,21 +161,16 @@ use_sass <- function(quiet = FALSE){
 
 	# copy files and script
 	dir_copy(pkg_file("scss"), "scss")
-	plugin_sass_overwritable()
+	use_sass_overwritable()
 	add_package("sass", type = "Suggests")
 	use_build_ignore("scss")
 
 	require_build()
 }
 
-plugin_sass_overwritable <- function(){
+use_sass_overwritable <- function(){
 	copy_file(pkg_file("dev", "sass.R"), c("inst", "dev", "sass.R"))
-	lock_plugin(
-		"sass", list(
-			leprechaun = get_pkg_version(),
-			sass = get_pkg_version("sass")
-		)
-	)
+	lock_use("sass", get_pkg_version())
 }
 
 #' Check that scss exists
@@ -219,12 +214,7 @@ use_packer <- function(quiet = FALSE){
 		cli_alert_success("Creating {.file inst/dev/packer.R}")
 
 	add_package("packer", type = "Suggests")
-	lock_plugin(
-		"packer", list(
-			leprechaun = get_pkg_version(),
-			packer = get_pkg_version("packer")
-		)
-	)
+	lock_use("packer", get_pkg_version())
 
 	require_build()
 }
@@ -255,7 +245,7 @@ check_packer <- function(){
 	)
 }
 
-#' Config Plugin
+#' Config
 #' 
 #' Setup a configuration file and helper functions.
 #' 
@@ -269,7 +259,7 @@ use_config <- function(quiet = FALSE){
 	check_config()
 	check_is_leprechaun()
 
-	plugin_config_overwritable()
+	use_config_overwritable()
 	copy_file(
 		pkg_file("config", "config.yml"),
 		c("inst", "config.yml")
@@ -283,17 +273,12 @@ use_config <- function(quiet = FALSE){
 	add_package("yaml")
 }
 
-plugin_config_overwritable <- function(){
+use_config_overwritable <- function(){
 	tmp_read_replace_write(
 		pkg_file("config", "config.R"),
 		"R/config.R"
 	)
-	lock_plugin(
-		"config", list(
-			leprechaun = get_pkg_version(),
-			config = get_pkg_version("config")
-		)
-	)
+	lock_use("config", get_pkg_version())
 }
 
 #' Check that config does not exists
@@ -317,7 +302,7 @@ check_config <- function(){
 
 #' Has Build
 #' 
-#' Checks whether a plugin build step is in place.
+#' Checks whether a use build step is in place.
 #' 
 #' @importFrom fs file_exists
 #' 

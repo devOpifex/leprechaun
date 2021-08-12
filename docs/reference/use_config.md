@@ -1,6 +1,6 @@
-# `plugin_config`
+# `use_config`
 
-Config Plugin
+Config
 
 
 ## Description
@@ -11,7 +11,7 @@ Setup a configuration file and helper functions.
 ## Usage
 
 ```r
-plugin_config(quiet = FALSE)
+use_config(quiet = FALSE)
 ```
 
 

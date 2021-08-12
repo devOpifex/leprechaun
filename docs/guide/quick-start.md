@@ -15,8 +15,8 @@ package.
 usethis::create_package("myapp")
 ```
 
-This create a package, if run from the RStudio IDE it should
-automatically open in a new window.
+This creates a package, if run from the RStudio IDE it should
+automatically open the project.
 
 If you are not using RStudio create the package and move the 
 root of the package then open your editor of choice, e.g.: 
@@ -37,17 +37,18 @@ leprechaun::scaffold()
 ```
 
 ```
-── Scaffolding leprechaun app ───────────────────────────────────────────────
+── Scaffolding leprechaun app ───────────────────────────────────────
 
 ── Creating lock file ──
 
-ℹ Creating .leprechaun
+✔ Creating .leprechaun
 
 ── Adding dependencies ──
 
-✔ Setting active project to '/home/jp/Projects/test'
-✔ Adding 'shiny' to Imports field in DESCRIPTION
-✔ Adding 'bslib' to Imports field in DESCRIPTION
+✔ Adding 'shiny' to Imports in DESCRIPTION
+✔ Adding 'bslib' to Imports in DESCRIPTION
+✔ Adding 'htmltools' to Imports in DESCRIPTION
+
 
 ── Generating code ──
 
@@ -69,7 +70,7 @@ leprechaun::scaffold()
 
 This creates a few files containing code necessary to run the
 application. To test it, document, and load the code, then
-call the `run` function.
+call the `run` function that is now part of the package.
 
 ```r
 devtools::document()
@@ -86,8 +87,8 @@ to Bootstrap 4 is highly recommended!
 ## Modules
 
 Good practice has it that shiny code should be placed within 
-"modules," they make shiny code easily reusable and are a great
-way to structure an application: compartmentalisation.
+"modules," they are easily reusable bundles of code, and are 
+a great way to structure an application: compartmentalisation.
 
 You can add modules with the function:
 

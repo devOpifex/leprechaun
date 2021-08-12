@@ -44,6 +44,7 @@ scaffold <- function(
 	cli_h2("Adding dependencies")
 	add_package("shiny")
 	add_package("bslib")
+	add_package("htmltools")
 	cat("\n")
 
 	# copy files

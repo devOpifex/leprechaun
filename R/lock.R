@@ -61,12 +61,6 @@ lock_use <- function(key, value = get_pkg_version()) {
 
 #' @noRd 
 #' @keywords internal
-lock_plugin <- function(key, value = get_pkg_version()) {
-	lock_change(key, value, parent = "plugins")
-}
-
-#' @noRd 
-#' @keywords internal
 lock_change <- function(key, value, parent = "r"){
 	conf <- lock_read()
 	conf[[parent]][[key]] <- value

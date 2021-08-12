@@ -1,8 +1,8 @@
-<img height="250" src="_assets/leprechaun.png" />
+<img style="float:right;" height="250" src="_assets/leprechaun.png" />
 
-Code generator for _lean_ shiny applications as packages.
+Code generator for _lean_ and _robust_ shiny applications.
 
-### Get it
+## Get it
 
 It's not yet on CRAN, get it from Github.
 
@@ -11,25 +11,24 @@ It's not yet on CRAN, get it from Github.
 remotes::install_github("devOpifex/leprechaun")
 ```
 
-### How it works
+## How it works
 
 From the root of a package, scaffold a leprechaun application.
 This generates basic code for a shiny application within the 
 package.
 
-Then, if more features are needed, you can use the `use_*` family
+Then, if more features are needed, you can call the `use_*` family
 of functions to selectively add them to your project. e.g.:
 to add utility JavaScript functions to hide or show elements
 in the DOM.
-Also, you can use the "plugins," functions that ease and 
-improve the integration of shiny with other packages, e.g.: to
-make use of sass to style the application.
 
-### The elephant in the room
+## The elephant in the room
 
 Leprechaun is indeed very similar to 
 [golem](https://golemverse.org/) but it differs in some ways.
-Namely, it aims at producing lean apps, hence the name "leprechaun".
+Namely it generates code and does not make itself a dependency
+of the application you build; the are _leaner_ and 
+_smaller_, hence the name "leprechaun."
 
 Golem is a great package, which, like probably most of you,
 I have used to build dozens of apps. However,
@@ -50,11 +49,11 @@ external dependencies, other than
 [shiny](https://shiny.rstudio.com) and 
 [bslib](https://rstudio.github.io/bslib/).
 
-Leprechaun, sees itself as a _developer dependency,_ it is 
-required to develop the app but should not be required to run 
-the application.
+This is because leprechaun, sees itself as a _developer dependency_
+it's only job is to make it easier for the developer to build an 
+application.
 
 This allows keeping things small and efficient, leprechaun also
 encourages that approach with regard to the JavaScript and CSS
 via [packer](https://packer.john-coene.com), and 
-[sass](https://github.com/rstudio/sass).
+[sass](https://github.com/rstudio/sass) respectively.

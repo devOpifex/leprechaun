@@ -1,6 +1,6 @@
-# `plugin_sass`
+# `use_sass`
 
-Sass PLugin
+Sass
 
 
 ## Description
@@ -12,7 +12,7 @@ Setup basic structure for sass and helper script for
 ## Usage
 
 ```r
-plugin_sass(quiet = FALSE)
+use_sass(quiet = FALSE)
 ```
 
 

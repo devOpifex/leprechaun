@@ -1,6 +1,6 @@
-# `plugin_packer`
+# `use_packer`
 
-Packer Plugin
+Packer
 
 
 ## Description
@@ -11,7 +11,7 @@ Setup a packer script to easily bundle the JavaScipt.
 ## Usage
 
 ```r
-plugin_packer(quiet = FALSE)
+use_packer(quiet = FALSE)
 ```
 
 
