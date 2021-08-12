@@ -7,7 +7,7 @@
 
 [Quick Start](https://leprechaun.opifex.org/#/guide/quick-start) | [Docs](https://leprechaun.opifex.org)
 
-Leprechaun is allows you to generate _lean_ and robust 
+Leprechaun is allows you to generate _lean_ and _robust_ 
 [shiny](http://shiny.rstudio.com/) applications.
 
 </div>
