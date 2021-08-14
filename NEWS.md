@@ -1,3 +1,7 @@
-# leprechaun 0.1.0.9000
+# leprechaun 1.0.1.9000
+
+- Assets supports added for serving `type = module`
+
+# leprechaun 1.0.0.9000
 
 - Initial version
