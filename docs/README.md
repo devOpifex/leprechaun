@@ -26,15 +26,15 @@ in the DOM.
 
 Leprechaun is indeed very similar to 
 [golem](https://golemverse.org/) but it differs in some ways.
-Namely it generates code and does not make itself a dependency
-of the application you build; the are _leaner_ and 
+Namely, it generates code and does not make itself a dependency
+of the application you build; this means applications are _leaner_ and 
 _smaller_, hence the name "leprechaun."
 
 Golem is a great package, which, like probably most of you,
 I have used to build dozens of apps. However,
 
 1. It comes with numerous features I rarely use.
-2. It comes as a dependency to my application.
+2. It adds a dependency to my application.
 
 The two points above increase the size of applications and 
 make them more fragile.
@@ -44,7 +44,7 @@ do not require it to run, and where the features we include in
 the application are entirely optional.
 
 Therefore, leprechaun generates code that it places 
-in the package/app you build, it does require importing 
+in the package/app you build. It does not require importing 
 external dependencies, other than 
 [shiny](https://shiny.rstudio.com) and 
 [bslib](https://rstudio.github.io/bslib/).
@@ -53,7 +53,7 @@ This is because leprechaun, sees itself as a _developer dependency_
 it's only job is to make it easier for the developer to build an 
 application.
 
-This allows keeping things small and efficient, leprechaun also
-encourages that approach with regard to the JavaScript and CSS
+This keeps things small and efficient, an approach leprechaun also
+encourages with regard to JavaScript and CSS
 via [packer](https://packer.john-coene.com), and 
 [sass](https://github.com/rstudio/sass) respectively.
