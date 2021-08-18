@@ -10,7 +10,7 @@ build <- function(){
 	files <- list.files("inst/dev", pattern = ".R$")
 
 	if(length(files) == 0){
-		cli_alert_warning("Nothing to run")
+		cli_alert_warning("Nothing to build")
 		return()
 	}
 
