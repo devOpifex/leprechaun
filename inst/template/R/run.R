@@ -14,3 +14,14 @@ run <- function(...){
 		...
 	)
 }
+
+#' Run Development
+#' 
+#' Runs the development version which includes
+#' the build step.
+#' 
+#' @keywords internal
+run_dev <- function(){
+	file <- system.file("run/app.R", package = "#PKGNAME#")
+	shiny::shinyAppFile(file)
+}

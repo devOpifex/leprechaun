@@ -45,6 +45,7 @@ scaffold <- function(
 	add_package("shiny")
 	add_package("bslib")
 	add_package("htmltools")
+	add_package("pkgload", type = "Suggests")
 	cat("\n")
 
 	# copy files
@@ -61,6 +62,7 @@ scaffold <- function(
 	create_dir_dev()
 	create_dir_assets()
 	create_dir_img()
+	create_dir_run()
 
 	# ignore files
 	cli_h2("Ignoring files")

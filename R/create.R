@@ -118,7 +118,7 @@ create_run <- function(quiet = FALSE){
 	check_is_leprechaun()
 	outfile <- c("R", "run.R")
 	infile <- pkg_file("template", outfile)
-	copy_file(infile, outfile)
+	tmp_read_replace_write(infile, outfile)
 	lock_r("run")
 
 	if(!quiet)
@@ -213,6 +213,31 @@ create_dir_dev <- function(quiet = FALSE){
 
 	if(!quiet)
 		cli_alert_success("Creating {.file inst/dev}")
+
+	invisible()
+}
+
+#' Create Run Directory
+#' 
+#' Create the image directory within `inst`
+#' 
+#' @param quiet Whether to pring messages to the console.
+#' 
+#' @importFrom cli cli_alert_success
+#' @importFrom fs dir_create file_copy
+#' 
+#' @noRd 
+#' @keywords internals
+create_dir_run <- function(quiet = FALSE){
+	check_is_leprechaun()
+	dir_create("inst/run/", recurse = TRUE)
+	file_copy(
+		pkg_file("run", "dev.R"),
+		c("inst/run/app.R")
+	)
+
+	if(!quiet)
+		cli_alert_success("Creating {.file inst/run/app.R}")
 
 	invisible()
 }
