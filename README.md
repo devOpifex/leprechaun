@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- badges: start -->
-[![R-CMD-check](https://github.com/devOpifex/leprechaun/workflows/R-CMD-check/badge.svg)](https://github.com/devOpifex/leprechaun/actions) ![](https://img.shields.io/badge/license-Apache%202-blue)
+![](https://img.shields.io/badge/license-Apache%202-blue)
 <!-- badges: end -->
 
 <img src="docs/_assets/leprechaun.png" height=200>
