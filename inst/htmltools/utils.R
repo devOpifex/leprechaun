@@ -133,6 +133,9 @@ alert <- function(..., class = "", color = "primary"){
 #' Very similar to [htmltools::tag()] but uses
 #' variadic `...` instead of a list.
 #' 
+#' @param name Name of the tag.
+#' @param ... Attributes and children.
+#' 
 #' @importFrom htmltools tag
 tag2 <- function(name, ...){
 	tag(name, list(...))	
