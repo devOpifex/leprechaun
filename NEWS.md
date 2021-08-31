@@ -6,6 +6,7 @@
 the launching the app.
 - Changed `build` message when nothing is to be built
 - Added `add_app_file` function
+- Scaffold also add `_disable_autoload.R` file.
 
 # leprechaun 1.0.0.9000
 

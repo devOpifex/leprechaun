@@ -241,3 +241,25 @@ create_dir_run <- function(quiet = FALSE){
 
 	invisible()
 }
+
+#' Disable Autoload
+#' 
+#' Adds the `_disable_autoload.R` file.
+#' 
+#' @param quiet Whether to pring messages to the console.
+#' 
+#' @importFrom cli cli_alert_success
+#' 
+#' @noRd 
+#' @keywords internal
+create_server <- function(quiet = FALSE){
+	check_is_leprechaun()
+	outfile <- c("R", "_disable_autoload.R")
+	infile <- pkg_file("template", outfile)
+	copy_file(infile, outfile)
+
+	if(!quiet)
+		cli_alert_success("Creating {.file R/_disable_autoload.R}")
+
+	invisible()
+}
