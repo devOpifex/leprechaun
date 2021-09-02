@@ -252,7 +252,7 @@ create_dir_run <- function(quiet = FALSE){
 #' 
 #' @noRd 
 #' @keywords internal
-create_server <- function(quiet = FALSE){
+create_disable_autoload <- function(quiet = FALSE){
 	check_is_leprechaun()
 	outfile <- c("R", "_disable_autoload.R")
 	infile <- pkg_file("template", outfile)
