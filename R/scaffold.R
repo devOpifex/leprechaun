@@ -55,6 +55,7 @@ scaffold <- function(
 	create_run()
 	create_server()
 	create_utils()
+	create_disable_autoload()
 	create_onload()
 
 	# images
