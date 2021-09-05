@@ -242,6 +242,7 @@ confirm_update <- function(){
 #' Prompt the user for confirmation update
 #' 
 #' @keywords internal
+#' @noRd 
 ask <- function(){
 	response <- readline("Do you want to proceed? (y/n)\n")
 	
