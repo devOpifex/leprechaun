@@ -12,7 +12,7 @@
 serveAssets <- function(modules = NULL){
 	# JavaScript files
 	javascript <- list.files(
-		"inst", 
+		system.file(package = "#PKGNAME#"), 
 		recursive = TRUE, 
 		pattern = ".js$"
 	)
@@ -22,7 +22,7 @@ serveAssets <- function(modules = NULL){
 
 	# CSS files
 	css <- list.files(
-		"inst",
+		system.file(package = "#PKGNAME#"), 
 		recursive = TRUE,
 		pattern = ".css$"
 	)
