@@ -24,7 +24,7 @@ create_ui <- function(
 
 	# prepare infile and outfile for copy
 	infile <- pkg_file(file_path)
-	outfile <- sprintf("R/%s.R", type)
+	outfile <- "R/ui.R"
 
 	# copy/replace file
 	tmp_read_replace_write(infile, outfile)
