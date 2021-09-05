@@ -1,3 +1,16 @@
-# leprechaun 0.1.0.9000
+# leprechaun 1.0.1.9000
+
+- Assets supports added for serving `type = module`
+- Add `tag2` convenience function to htmltools plugin
+- Add `run_dev` function that runs the build step before
+the launching the app.
+- Changed `build` message when nothing is to be built
+- Added `add_app_file` function
+- Scaffold also add `_disable_autoload.R` file.
+- Keep ui file name consistent regardless of whether the app
+was created with `fluidPage` or `navbarPage`: always create
+`ui.R`.
+
+# leprechaun 1.0.0.9000
 
 - Initial version
