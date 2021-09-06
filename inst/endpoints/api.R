@@ -51,8 +51,9 @@ http_response_json <- function(content, headers = list()){
   )
 }
 
+# create a random name for the endpoint
 random_endpoint_name <- function(){
-	paste0(sample(letters, 25), collapse = "")
+	paste0(sample(letters, 26), collapse = "")
 }
 
 #' Register an Endpoint
