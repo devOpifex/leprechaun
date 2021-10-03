@@ -7,6 +7,7 @@
 #' Create a function to send custom messages to the front-end,
 #' this function makes it such that the namespace is carried
 #' along.
+#' The namespace is appended as `ns`.
 #' 
 #' @param session Shiny session to derive namespace
 #' 
@@ -22,11 +23,16 @@
 make_send_message <- function(session){
   ns <- session$ns(NULL)
 
+  ns2 <- ns
+  if(length(ns) > 0 && ns != "")
+    ns2 <- paste0(ns2, "-")
+
   function(msgId, ...){
     session$sendCustomMessage(
       msgId,
       list(
         ns = ns,
+        ns2 = ns2,
         ...
       )
     )

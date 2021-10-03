@@ -10,6 +10,7 @@ the launching the app.
 - Keep ui file name consistent regardless of whether the app
 was created with `fluidPage` or `navbarPage`: always create
 `ui.R`.
+- `send_message` also appends `-` to namespace if necessary.
 
 # leprechaun 1.0.0.9000
 

@@ -161,7 +161,7 @@ Imports:
 ## Enpoints
 
 There is also a set of functions to help set up 
-session-dependend endpoints.
+session-dependent endpoints.
 
 ```r
 leprechaun::use_endpoints_utils()
@@ -170,12 +170,6 @@ leprechaun::use_endpoints_utils()
 ```
 ✔ Adding 'jsonlite' to Imports in DESCRIPTION
 ✔ Creating R/endpoint-utils.R
-```
-
-These can be added with:
-
-```r
-leprechaun::use_endpoint_utils()
 ```
 
 This adds a file with utility functions to generate endpoints.
