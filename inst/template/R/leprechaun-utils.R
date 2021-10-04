@@ -8,6 +8,8 @@
 #' this function makes it such that the namespace is carried
 #' along.
 #' The namespace is appended as `ns`.
+#' The namespace with the optional hyphen is 
+#' included as `ns2`.
 #' 
 #' @param session Shiny session to derive namespace
 #' 
