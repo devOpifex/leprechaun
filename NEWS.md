@@ -13,7 +13,7 @@ was created with `fluidPage` or `navbarPage`: always create
 - `send_message` also appends `-` to namespace in `ns2`.
 - Added input handlers in scaffold.
 - Fix update of endpoint utilities.
-- Added `leprechaun_scaffold` to report on the situation
+- Added `sitrep` to report on the situation
 only prints useful messages.
 
 # leprechaun 1.0.0.9000

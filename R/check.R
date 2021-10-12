@@ -30,7 +30,7 @@ base_file_exist <- function() {
 #' @importFrom cli cli_alert_danger cli_alert_warning cli_alert_success cli_alert_info
 #' 
 #' @export 
-leprechaun_sitrep <- function(){
+sitrep <- function(){
 	if(!lock_exists()){
 		cli_alert_danger("Not a leprechaun project")
 		return(invisible())

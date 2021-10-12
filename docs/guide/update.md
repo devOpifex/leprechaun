@@ -14,7 +14,27 @@ CRAN or Github.
 remotes::install_github("devOpifex/leprechaun")
 ```
 
-Then, from the root of your application using leprechaun,
+## Check
+
+You can always `sitrep()` to receive some information on whether
+an update is necessary.
+
+```r
+leprechaun::sitrep()
+```
+
+```
+# all good
+✔ Scaffold version and installed leprechaun version match (1.0.1): all is well!
+
+# update may be considered
+! You have leprechaun version 1.0.1.9000 installed but the project uses 1.0.0
+ℹ You may want to run  `update_scaffold()`
+```
+
+## Update
+
+From the root of your application using leprechaun,
 run `leprechaun::update_scaffold()`.
 
 ```

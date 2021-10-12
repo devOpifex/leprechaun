@@ -1,4 +1,4 @@
-# `leprechaun_sitrep`
+# `sitrep`
 
 Sitrep
 
@@ -12,7 +12,7 @@ Run a check on the project, prints useful
 ## Usage
 
 ```r
-leprechaun_sitrep()
+sitrep()
 ```
 
 
