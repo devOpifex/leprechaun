@@ -5,7 +5,7 @@
 #' @param type Type of ui to create. 
 #' Used to dynamically determine the file required
 #' and its path.
-#' @param quiet Whether to pring messages to the console.
+#' @param quiet Whether to print messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' 
@@ -40,7 +40,7 @@ create_ui <- function(
 #' 
 #' Create basic server function and file `server.R`.
 #' 
-#' @param quiet Whether to pring messages to the console.
+#' @param quiet Whether to print messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' 
@@ -64,7 +64,7 @@ create_server <- function(quiet = FALSE){
 #' 
 #' Create assets function and file `assets.R`.
 #' 
-#' @param quiet Whether to pring messages to the console.
+#' @param quiet Whether to print messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' 
@@ -86,7 +86,7 @@ create_assets <- function(quiet = FALSE){
 #' 
 #' Create `zzz.R` file containing `.onLoad` function.
 #' 
-#' @param quiet Whether to pring messages to the console.
+#' @param quiet Whether to print messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' 
@@ -108,7 +108,7 @@ create_onload <- function(quiet = FALSE){
 #'
 #' Create `run.R` file to launch the app.
 #' 
-#' @param quiet Whether to pring messages to the console.
+#' @param quiet Whether to print messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' 
@@ -131,7 +131,7 @@ create_run <- function(quiet = FALSE){
 #' 
 #' Create `utils.R` file containing helper functions.
 #' 
-#' @param quiet Whether to pring messages to the console.
+#' @param quiet Whether to print messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' 
@@ -153,7 +153,7 @@ create_utils <- function(quiet = FALSE){
 #' 
 #' Create the image directory within `inst`
 #' 
-#' @param quiet Whether to pring messages to the console.
+#' @param quiet Whether to print messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_create
@@ -176,7 +176,7 @@ create_dir_img <- function(quiet = FALSE){
 #' Create the assets directory within `inst`
 #' to store CSS, and JavaScript files.
 #' 
-#' @param quiet Whether to pring messages to the console.
+#' @param quiet Whether to print messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_create
@@ -199,7 +199,7 @@ create_dir_assets <- function(quiet = FALSE){
 #' Create dev directory to store (optional)
 #' development helper scripts.
 #' 
-#' @param quiet Whether to pring messages to the console.
+#' @param quiet Whether to print messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_create
@@ -221,7 +221,7 @@ create_dir_dev <- function(quiet = FALSE){
 #' 
 #' Create the image directory within `inst`
 #' 
-#' @param quiet Whether to pring messages to the console.
+#' @param quiet Whether to print messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_copy
@@ -246,7 +246,7 @@ create_dir_run <- function(quiet = FALSE){
 #' 
 #' Adds the `_disable_autoload.R` file.
 #' 
-#' @param quiet Whether to pring messages to the console.
+#' @param quiet Whether to print messages to the console.
 #' 
 #' @importFrom cli cli_alert_success
 #' 
@@ -260,6 +260,28 @@ create_disable_autoload <- function(quiet = FALSE){
 
 	if(!quiet)
 		cli_alert_success("Creating {.file R/_disable_autoload.R}")
+
+	invisible()
+}
+
+#' Create Input Handlers
+#' 
+#' Create input handlers functions and file `inputs-handlers.R`.
+#' 
+#' @param quiet Whether to print messages to the console.
+#' 
+#' @importFrom cli cli_alert_success
+#' 
+#' @export 
+create_input_handlers <- function(quiet = FALSE){
+	check_is_leprechaun()
+	outfile <- c("R", "input-handlers.R")
+	infile <- pkg_file("template", outfile)
+	tmp_read_replace_write(infile, outfile)
+	lock_r("inputs")
+
+	if(!quiet)
+		cli_alert_success("Creating {.file R/input-handlers.R}")
 
 	invisible()
 }

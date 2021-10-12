@@ -7,7 +7,7 @@
 create_assets(quiet = FALSE)
 }
 \arguments{
-\item{quiet}{Whether to pring messages to the console.}
+\item{quiet}{Whether to print messages to the console.}
 }
 \description{
 Create assets function and file \code{assets.R}.

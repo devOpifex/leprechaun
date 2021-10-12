@@ -57,6 +57,7 @@ scaffold <- function(
 	create_utils()
 	create_disable_autoload()
 	create_onload()
+	create_input_handlers()
 
 	# images
 	cat("\n")

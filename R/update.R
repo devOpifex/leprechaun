@@ -120,7 +120,8 @@ update_use <- function(){
 			"endpoint-utils" = update_endpoint_utils(),
 			"sass" = update_sass(),
 			"packer" = update_packer(),
-			"config" = update_config()
+			"config" = update_config(),
+			"inputs" = update_inputs()
 		)
 	}
 }
@@ -149,7 +150,7 @@ update_html_utils <- function(){
 #' @keywords internal
 update_endpoint_utils <- function(){
 	cli_alert_info("Updating {.file R/endpoint-utils.R}")
-	use_html_utils(overwrite = TRUE, quiet = TRUE)
+	use_endpoints_utils(overwrite = TRUE, quiet = TRUE)
 }
 
 #' Update R
@@ -202,6 +203,14 @@ update_assets <- function(){
 update_utils <- function(){
 	cli_alert_info("Updating {.file R/leprechaun-utils.R}")
 	create_utils(TRUE)
+}
+
+#' @noRd 
+#' @keywords internal
+#' @importFrom cli cli_alert_info
+update_inputs <- function(){
+	cli_alert_info("Updating {.file R/input-handlers.R}")
+	create_onload(TRUE)
 }
 
 #' Confirm Update

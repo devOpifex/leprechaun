@@ -7,7 +7,7 @@
 create_onload(quiet = FALSE)
 }
 \arguments{
-\item{quiet}{Whether to pring messages to the console.}
+\item{quiet}{Whether to print messages to the console.}
 }
 \description{
 Create \code{zzz.R} file containing \code{.onLoad} function.
