@@ -1,17 +1,17 @@
-# `create_onload`
+# `create_input_handlers`
 
-Create onLoad
+Create Input Handlers
 
 
 ## Description
 
-Create `zzz.R` file containing `.onLoad` function.
+Create input handlers functions and file `inputs-handlers.R` .
 
 
 ## Usage
 
 ```r
-create_onload(quiet = FALSE)
+create_input_handlers(quiet = FALSE)
 ```
 
 

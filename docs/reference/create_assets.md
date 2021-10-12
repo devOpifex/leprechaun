@@ -19,6 +19,6 @@ create_assets(quiet = FALSE)
 
 Argument      |Description
 ------------- |----------------
-`quiet`     |     Whether to pring messages to the console.
+`quiet`     |     Whether to print messages to the console.
 
 
