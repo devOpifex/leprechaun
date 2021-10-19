@@ -12,17 +12,26 @@
 #' included as `ns2`.
 #' 
 #' @param session Shiny session to derive namespace
+#' @param prefix A prefix to add to all types.
+#' Note that the prefix is followed by a hyphen `-`.
 #' 
 #' @examples 
 #' \dontrun{
 #' send_message <- make_send_message(session)
 #' send_message("do-sth")
 #' send_message("do-sth-else", x = 1)
+#' 
+#' # with prefix
+#' send_message <- make_send_message(session, prefix = "PREFIX")
+#' 
+#' # this sends a mesasge of type:
+#' # PREFIX-so-th
+#' send_message("do-sth")
 #' }
 #' 
 #' @noRd 
 #' @keywords internal
-make_send_message <- function(session){
+make_send_message <- function(session, prefix = NULL){
   ns <- session$ns(NULL)
 
   ns2 <- ns
@@ -30,6 +39,9 @@ make_send_message <- function(session){
     ns2 <- paste0(ns2, "-")
 
   function(msgId, ...){
+    if(!is.null(prefix))
+      msgId <- sprintf("%s-%s", prefix, msgId)
+    
     session$sendCustomMessage(
       msgId,
       list(

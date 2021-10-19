@@ -15,6 +15,7 @@ was created with `fluidPage` or `navbarPage`: always create
 - Fix update of endpoint utilities.
 - Added `sitrep` to report on the situation
 only prints useful messages.
+- Added `prefix` to `make_send_message`.
 
 # leprechaun 1.0.0.9000
 
