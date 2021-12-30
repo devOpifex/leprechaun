@@ -23,6 +23,16 @@ export const handleUtils = () => {
 	Shiny.addCustomMessageHandler('leprechaun-enable', (msg) => {
 		$(msg.selector).prop('disabled', false);
 	});
+
+	Shiny.addCustomMessageHandler('leprechaun-disable-selectize', (msg) => {
+		let sel = $(msg.selector).selectize();
+		sel[0].selectize.disable();
+	});
+
+	Shiny.addCustomMessageHandler('leprechaun-enable-selectize', (msg) => {
+		let sel = $(msg.selector).selectize();
+		sel[0].selectize.enable();
+	});
 	
 	Shiny.addCustomMessageHandler('leprechaun-eval', (msg) => {
 		eval(msg.code);

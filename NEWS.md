@@ -1,3 +1,7 @@
+# leprechaun 1.0.1.9001
+
+- Added utils to enable and disable selectize js
+
 # leprechaun 1.0.1.9000
 
 - Assets supports added for serving `type = module`

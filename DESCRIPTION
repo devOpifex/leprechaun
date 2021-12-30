@@ -1,6 +1,6 @@
 Package: leprechaun
 Title: Create Simple 'Shiny' Applications as Packages
-Version: 1.0.1.9000
+Version: 1.0.1.9001
 Authors@R: 
     c(
         person(given = "John",
