@@ -24,7 +24,7 @@ leprechaun_handler_df <- function(data){
 #' 
 #' @keywords internal
 leprechaun_handler_list <- function(data){
-	do.call("rbind", lapply(data))
+	return(data)
 }
 
 .onAttach <- function(...) {
