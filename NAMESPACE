@@ -2,6 +2,7 @@
 
 export(add_app_file)
 export(add_module)
+export(bootstrap_version)
 export(build)
 export(create_assets)
 export(create_input_handlers)

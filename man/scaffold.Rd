@@ -4,10 +4,18 @@
 \alias{scaffold}
 \title{Scaffold Leprechaun}
 \usage{
-scaffold(ui = c("navbarPage", "fluidPage"), overwrite = FALSE)
+scaffold(
+  ui = c("navbarPage", "fluidPage"),
+  bs_version = bootstrap_version(),
+  overwrite = FALSE
+)
 }
 \arguments{
 \item{ui}{Type of UI to use.}
+
+\item{bs_version}{Bootstrap version to use.
+If shiny > 1.6 is installed defaults to version 5,
+otherwise version 4.}
 
 \item{overwrite}{Whether to force overwrite all files.
 This is not recommended, make sure you have save and/or
