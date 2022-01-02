@@ -10,7 +10,7 @@
 #' @keywords internal
 ui <- function(req){
 	fluidPage(
-		theme = bs_theme(version = 4L),
+		theme = bs_theme(version = #BSVERSION#),
 		assets(),
 		h1("#PKGNAME#")
 	)

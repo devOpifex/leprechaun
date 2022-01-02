@@ -10,7 +10,7 @@
 #' @keywords internal
 ui <- function(req){
 	navbarPage(
-		theme = bs_theme(version = 4L),
+		theme = bs_theme(version = #BSVERSION#),
 		header = list(assets()),
 		title = "#PKGNAME#",
 		id = "main-menu",

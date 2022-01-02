@@ -9,6 +9,9 @@
 #' This is not recommended, make sure you have save and/or
 #' committed and checked that the files that will be overwritten
 #' can be before proceeding with this option.
+#' @param bs_version Bootstrap version to use.
+#' If shiny > 1.6 is installed defaults to version 5,
+#' otherwise version 4.
 #' 
 #' @importFrom cli cli_h1 cli_h2
 #' @importFrom fs file_exists
@@ -17,6 +20,7 @@
 #' @export 
 scaffold <- function(
 	ui = c("navbarPage", "fluidPage"),
+	bs_version = bootstrap_version(),
 	overwrite = FALSE
 ){
 	ui <- match.arg(ui)
@@ -50,7 +54,7 @@ scaffold <- function(
 
 	# copy files
 	cli_h2("Generating code")
-	create_ui(ui)
+	create_ui(ui, bs_version)
 	create_assets()
 	create_run()
 	create_server()

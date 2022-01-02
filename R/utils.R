@@ -43,34 +43,39 @@ get_pkg_version <- function(pkg = "leprechaun"){
 #' Replace the content of a template file.
 #' 
 #' @param content Content to replace.
+#' @param module module name.
+#' @param bs_version Bootstrap version.
 #' 
 #' @noRd 
 #' @keywords internal
-tmp_replace <- function(content, module = NULL ){
+tmp_replace <- function(content, module = NULL, bs_version = NULL){
 	content <- gsub("#PKGNAME#", get_pkg_name(), content)
 
 	if(!is.null(module))
 		content <- gsub("#MODULE#", module, content)
+	
+	if(!is.null(bs_version))
+		content <- gsub("#BSVERSION#", bs_version, content)
 
 	return(content)
 }
 
 #' @noRd 
 #' @keywords internal
-tmp_read_replace <- function(file, module = NULL){
+tmp_read_replace <- function(file, module = NULL, bs_version = NULL){
 	content <- read_lines(file)
-	tmp_replace(content, module)
+	tmp_replace(content, module, bs_version)
 }
 
 #' @noRd 
 #' @keywords internal
-tmp_read_replace_write <- function(infile, outfile, module = NULL){
+tmp_read_replace_write <- function(infile, outfile, module = NULL, bs_version = NULL){
 	# paths
 	infile <- collapse_path(infile)
 	outfile <- collapse_path(outfile)
 
 	# content
-	content <- tmp_read_replace(infile, module)
+	content <- tmp_read_replace(infile, module, bs_version)
 	writeLines(content, con = outfile)
 }
 

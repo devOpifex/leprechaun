@@ -6,6 +6,7 @@
 #' Used to dynamically determine the file required
 #' and its path.
 #' @param quiet Whether to print messages to the console.
+#' @param bs_version Bootstrap version to use.
 #' 
 #' @importFrom cli cli_alert_success
 #' 
@@ -13,6 +14,7 @@
 #' @keywords internal
 create_ui <- function(
 	type = c("navbarPage", "fluidPage"),
+	bs_version = bootstrap_version(),
 	quiet = FALSE
 ){
 	check_is_leprechaun()
@@ -27,13 +29,49 @@ create_ui <- function(
 	outfile <- "R/ui.R"
 
 	# copy/replace file
-	tmp_read_replace_write(infile, outfile)
+	tmp_read_replace_write(infile, outfile, bs_version = bs_version)
+
+	conf <- lock_read()
+	conf$bs_version <- bs_version
+	lock_write(conf)
 
 	lock_r("ui")
 	if(!quiet)
 		cli_alert_success("Creating {.file R/ui.R}")
 	
 	invisible()
+}
+
+#' Default Bootstrap Version
+#' 
+#' Gets the default Bootstrap version based 
+#' on the Shiny version installed.
+#' Shiny > 1.6 uses version 5 while
+#' earlier version use Bootstrap 4.
+#' 
+#' @export
+bootstrap_version <- function() {
+	version <- utils::packageVersion("shiny")
+
+	version <- strsplit(
+		as.character(
+			version
+			)
+		, 
+		"\\.")[[1]]
+
+	version <- as.numeric(
+		paste0(
+			version[1],
+			".",
+			version[2]
+		)
+	)
+
+	if(version > 1.6)
+		return(5L)
+
+	4L
 }
 
 #' Create Server
