@@ -4,6 +4,7 @@
 - Added comment to `app.R` for RStudio Deploy button
 - Fix input handler for list.
 - Fix registering of input handles: `.onAttach`.
+- Added warning comments to all template files.
 
 # leprechaun 1.0.1.9000
 
