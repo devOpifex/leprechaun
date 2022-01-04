@@ -1,6 +1,6 @@
 Package: leprechaun
 Title: Create Simple 'Shiny' Applications as Packages
-Version: 1.0.1.9001
+Version: 1.0.1
 Authors@R: 
     c(
         person(given = "John",
@@ -9,7 +9,7 @@ Authors@R:
             email = "john@opifex.org"),
         person(family = "Opifex", role = "cph")
     )
-Description: Code generator for dependency-free 'Shiny' applications.
+Description: Code generator for robust dependency-free 'Shiny' applications in the form of packages.
 License: GPL (>= 2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
