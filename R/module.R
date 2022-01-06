@@ -6,6 +6,9 @@
 #' This is used to dynamically create the names of the
 #' functions and file.
 #' 
+#' @examples 
+#' \dontrun{add_module("module_name")}
+#' 
 #' @importFrom fs file_exists
 #' @importFrom cli cli_alert_success
 #' 
@@ -16,11 +19,15 @@ add_module <- function(name){
 	if(missing(name))
 		stop("Missing `name`", call. = FALSE)
 
+	if(grepl(" ", name))
+		stop("Module name may not include spaces", call. = FALSE)
+
 	path <- sprintf("R/module_%s.R", name)
 
 	if(file_exists(path))
 		stop(
-			sprintf("File `%s` already exists.", path)
+			sprintf("File `%s` already exists.", path),
+			call. = FALSE
 		)
 
 	cli_alert_success("Creating {.file {path}}")

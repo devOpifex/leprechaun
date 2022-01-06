@@ -7,6 +7,9 @@
 #' @importFrom usethis use_build_ignore
 #' 
 #' @export 
+#' \dontrun{add_app_file()}
+#' 
+#' @export 
 add_app_file <- function(){
 	file <- pkg_file("run", "prod.R")
 

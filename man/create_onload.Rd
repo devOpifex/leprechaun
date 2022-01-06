@@ -12,3 +12,7 @@ create_onload(quiet = FALSE)
 \description{
 Create \code{zzz.R} file containing \code{.onLoad} function.
 }
+\examples{
+\dontrun{create_onload()}
+
+}

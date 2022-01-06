@@ -12,3 +12,7 @@ create_utils(quiet = FALSE)
 \description{
 Create \code{utils.R} file containing helper functions.
 }
+\examples{
+\dontrun{create_utils()}
+
+}

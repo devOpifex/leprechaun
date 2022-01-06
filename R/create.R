@@ -8,6 +8,9 @@
 #' @param quiet Whether to print messages to the console.
 #' @param bs_version Bootstrap version to use.
 #' 
+#' @examples 
+#' \dontrun{create_ui()}
+#' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @noRd 
@@ -49,6 +52,11 @@ create_ui <- function(
 #' Shiny > 1.6 uses version 5 while
 #' earlier version use Bootstrap 4.
 #' 
+#' @examples 
+#' bootstrap_version()
+#' 
+#' @return An integer denoting the Bootstrap version.
+#' 
 #' @export
 bootstrap_version <- function() {
 	version <- utils::packageVersion("shiny")
@@ -80,6 +88,9 @@ bootstrap_version <- function() {
 #' 
 #' @param quiet Whether to print messages to the console.
 #' 
+#' @examples 
+#' \dontrun{create_server()}
+#' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @noRd 
@@ -104,6 +115,9 @@ create_server <- function(quiet = FALSE){
 #' 
 #' @param quiet Whether to print messages to the console.
 #' 
+#' @examples 
+#' \dontrun{create_assets()}
+#' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @export 
@@ -126,6 +140,9 @@ create_assets <- function(quiet = FALSE){
 #' 
 #' @param quiet Whether to print messages to the console.
 #' 
+#' @examples 
+#' \dontrun{create_onload()}
+#' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @export 
@@ -147,6 +164,9 @@ create_onload <- function(quiet = FALSE){
 #' Create `run.R` file to launch the app.
 #' 
 #' @param quiet Whether to print messages to the console.
+#' 
+#' @examples 
+#' \dontrun{create_run()}
 #' 
 #' @importFrom cli cli_alert_success
 #' 
@@ -171,6 +191,9 @@ create_run <- function(quiet = FALSE){
 #' 
 #' @param quiet Whether to print messages to the console.
 #' 
+#' @examples 
+#' \dontrun{create_utils()}
+#' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @export 
@@ -192,6 +215,9 @@ create_utils <- function(quiet = FALSE){
 #' Create the image directory within `inst`
 #' 
 #' @param quiet Whether to print messages to the console.
+#' 
+#' @examples 
+#' \dontrun{create_dir_img()}
 #' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_create
@@ -216,6 +242,9 @@ create_dir_img <- function(quiet = FALSE){
 #' 
 #' @param quiet Whether to print messages to the console.
 #' 
+#' @examples 
+#' \dontrun{create_dir_assets()}
+#' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_create
 #' 
@@ -239,6 +268,9 @@ create_dir_assets <- function(quiet = FALSE){
 #' 
 #' @param quiet Whether to print messages to the console.
 #' 
+#' @examples 
+#' \dontrun{create_dir_dev()}
+#' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_create
 #' 
@@ -260,6 +292,9 @@ create_dir_dev <- function(quiet = FALSE){
 #' Create the image directory within `inst`
 #' 
 #' @param quiet Whether to print messages to the console.
+#' 
+#' @examples 
+#' \dontrun{create_dir_run()}
 #' 
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_create file_copy
@@ -286,6 +321,9 @@ create_dir_run <- function(quiet = FALSE){
 #' 
 #' @param quiet Whether to print messages to the console.
 #' 
+#' @examples 
+#' \dontrun{create_disable_autoload()}
+#' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @noRd 
@@ -307,6 +345,9 @@ create_disable_autoload <- function(quiet = FALSE){
 #' Create input handlers functions and file `inputs-handlers.R`.
 #' 
 #' @param quiet Whether to print messages to the console.
+#' 
+#' @examples 
+#' \dontrun{create_input_handlers()}
 #' 
 #' @importFrom cli cli_alert_success
 #' 

@@ -10,3 +10,7 @@ sitrep()
 Run a check on the project, prints useful
 messages.
 }
+\examples{
+\dontrun{sitrep()}
+
+}

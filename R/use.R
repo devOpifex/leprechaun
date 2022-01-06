@@ -9,6 +9,9 @@
 #' @note This requires [use_packer].
 #' Also, it will require using [build].
 #' 
+#' @examples 
+#' \dontrun{use_js_utils()}
+#' 
 #' @importFrom fs file_exists
 #' @importFrom cli cli_alert_success
 #' 

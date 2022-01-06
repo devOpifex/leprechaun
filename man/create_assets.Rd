@@ -12,3 +12,7 @@ create_assets(quiet = FALSE)
 \description{
 Create assets function and file \code{assets.R}.
 }
+\examples{
+\dontrun{create_assets()}
+
+}

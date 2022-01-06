@@ -10,3 +10,7 @@ build()
 Runs the various scripts that were created with
 \code{setup} functions.
 }
+\examples{
+\dontrun{build()}
+
+}

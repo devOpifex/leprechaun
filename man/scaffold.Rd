@@ -27,3 +27,7 @@ Scaffolds a leprechaun project.
 This must be run from within a package
 and should only be run once per project.
 }
+\examples{
+\dontrun{scaffold()}
+
+}

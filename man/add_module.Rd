@@ -14,3 +14,7 @@ functions and file.}
 \description{
 Add boilerplate for a module.
 }
+\examples{
+\dontrun{add_module("module_name")}
+
+}

@@ -5,6 +5,9 @@
 #' This is to make sure we do no overwrite files
 #' the user may have created.
 #' 
+#' @examples 
+#' \dontrun{base_file_exists()}
+#' 
 #' @importFrom fs file_exists
 #' 
 #' @return Boolean
@@ -26,6 +29,9 @@ base_file_exist <- function() {
 #' 
 #' Run a check on the project, prints useful
 #' messages.
+#' 
+#' @examples 
+#' \dontrun{sitrep()}
 #' 
 #' @importFrom cli cli_alert_danger cli_alert_warning cli_alert_success cli_alert_info
 #' 
@@ -51,4 +57,6 @@ sitrep <- function(){
 		"You have leprechaun version {.strong {packageVersion('leprechaun')}} installed but the project uses {.strong {conf$version}}"
 	)
 	cli_alert_info("You may want to run  {.fn update_scaffold}")
+
+	invisible()
 }

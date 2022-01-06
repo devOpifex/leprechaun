@@ -19,3 +19,7 @@ element in the DOM.
 This requires \link{use_packer}.
 Also, it will require using \link{build}.
 }
+\examples{
+\dontrun{use_js_utils()}
+
+}

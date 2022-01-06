@@ -17,3 +17,7 @@ leprechaun.
 This reads the content of the \code{.leprechaun} lock file
 and updates it too.
 }
+\examples{
+\dontrun{update_scaffold()}
+
+}

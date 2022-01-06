@@ -8,6 +8,9 @@
 #' 
 #' @param force Force update, ignore safety checks.
 #' 
+#' @examples 
+#' \dontrun{update_scaffold()}
+#' 
 #' @importFrom cli cli_alert_success cli_alert_warning cli_alert_danger
 #' 
 #' @export 
@@ -78,6 +81,9 @@ update_main <- function(){
 #' Compare the installed version of leprechaun with
 #' the version set in the lockfile to assess whether
 #' an update is necessary.
+#' 
+#' @examples 
+#' \dontrun{compare_versions()}
 #' 
 #' @return boolean indicating whether the versions are identical
 #' 

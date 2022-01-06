@@ -13,6 +13,9 @@
 #' If shiny > 1.6 is installed defaults to version 5,
 #' otherwise version 4.
 #' 
+#' @examples 
+#' \dontrun{scaffold()}
+#' 
 #' @importFrom cli cli_h1 cli_h2
 #' @importFrom fs file_exists
 #' @importFrom usethis use_build_ignore

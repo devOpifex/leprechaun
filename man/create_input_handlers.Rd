@@ -12,3 +12,7 @@ create_input_handlers(quiet = FALSE)
 \description{
 Create input handlers functions and file \code{inputs-handlers.R}.
 }
+\examples{
+\dontrun{create_input_handlers()}
+
+}

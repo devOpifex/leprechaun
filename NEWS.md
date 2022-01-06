@@ -5,6 +5,7 @@
 - Fix input handler for list.
 - Fix registering of input handles: `.onAttach`.
 - Added warning comments to all template files.
+- Added examples
 
 # leprechaun 1.0.1.9000
 

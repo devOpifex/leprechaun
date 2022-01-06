@@ -5,6 +5,9 @@
 #' 
 #' @importFrom cli cli_alert_success cli_alert_warning
 #' 
+#' @examples 
+#' \dontrun{build()}
+#' 
 #' @export 
 build <- function(){
 	files <- list.files("inst/dev", pattern = ".R$")
@@ -18,5 +21,6 @@ build <- function(){
 		cli_alert_success("Running {.file {file}}")
 		source(file.path("inst", "dev", file))
 	})
+
 	invisible()
 }

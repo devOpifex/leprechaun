@@ -7,6 +7,9 @@ LOCK_FILE <- ".leprechaun"
 #' be useful in the future to correctly update 
 #' leprechaun projects.
 #' 
+#' @examples 
+#' \dontrun{lock_create()}
+#' 
 #' @importFrom cli cli_alert_success
 #' @importFrom jsonlite write_json
 #' 
@@ -46,6 +49,9 @@ lock_write <- function(conf){
 #' Change a `file` entry version in the lockfile.
 #' 
 #' @param key,value Key value pair to set.
+#' 
+#' @examples 
+#' \dontrun{lock_r("aVariable")}
 #' 
 #' @noRd 
 #' @keywords internal
