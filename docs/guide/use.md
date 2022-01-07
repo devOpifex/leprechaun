@@ -34,34 +34,6 @@ Suggests:
 
 - [sass](https://github.com/rstudio/sass)
 
-## Packer
-
-If you are using [packer](https://packer.john-coene.com/) then
-there is a handy function to easily bring support for it in 
-leprechaun.
-
-```r
-leprechaun::use_packer()
-```
-
-```
-✔ Creating inst/dev/packer.R
-✔ Adding 'packer' to Suggests in DESCRIPTION
-! This requires `leprechaun::build()`
-```
-
-This adds a script to `inst/dev` so that the 
-[build](/guide/build) process from leprechaun 
-bundles the JavaScript.
-
-<Note type="tip">
-Requires running <code>leprechaun::build()</code>
-</Note>
-
-Suggests:
-
-- [packer](https://packer.john-coene.com)
-
 ## Config
 
 If you want to make use of a config file there is a feature
@@ -131,6 +103,21 @@ Requires running <code>leprechaun::build()</code>
 Suggests:
 
 - [packer](https://packer.john-coene.com)
+
+## JavaScript
+
+<Note type="warning">
+Requires a packer scaffold in place and `leprechaun::use_packer()`
+</Note>
+
+This adds JavaScript utility functions to, for example, show/hide
+an element from the R server.
+
+```r
+packer::scaffold_leprechaun(edit = FALSE)
+use_packer()
+use_js_utils()
+```
 
 ## HTML
 

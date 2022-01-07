@@ -18,8 +18,14 @@ Imports:
     fs,
     cli,
     usethis,
-    jsonlite
+    jsonlite,
+    shiny,
+    bslib,
+    htmltools,
+    yaml
 Suggests:
     sass,
-    shiny,
-    packer
+    packer,
+    testthat (>= 3.0.0),
+    pkgload
+Config/testthat/edition: 3

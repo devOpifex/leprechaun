@@ -6,7 +6,7 @@
 #' @importFrom cli cli_alert_success cli_alert_danger
 #' @importFrom usethis use_build_ignore
 #' 
-#' @export 
+#' @examples
 #' \dontrun{add_app_file()}
 #' 
 #' @export 

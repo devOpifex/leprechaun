@@ -10,3 +10,7 @@ add_app_file()
 Add the \code{app.R} required to run on RStudio Connect,
 RStudio server, and shinyapps.io.
 }
+\examples{
+\dontrun{add_app_file()}
+
+}
