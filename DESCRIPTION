@@ -24,6 +24,7 @@ Imports:
     htmltools,
     yaml
 Suggests:
+    covr,
     sass,
     packer,
     testthat (>= 3.0.0),
