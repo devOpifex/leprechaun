@@ -14,7 +14,7 @@
 #' @importFrom cli cli_alert_success cli_alert_warning cli_alert_danger
 #' 
 #' @export 
-update_scaffold <- function(force = FALSE){
+update_scaffold <- function(force = !interactive()){
 	check_is_leprechaun()
 
 	# check whether an update is even required
@@ -253,19 +253,17 @@ confirm_update <- function(force = FALSE){
 
 	cat("\n")
 
+	if(force)
+		return(TRUE)
+
 	ask()	
 }
 
 #' Prompt the user for confirmation update
 #' 
-#' @param force Force update, ignore safety checks.
-#' 
 #' @keywords internal
 #' @noRd 
-ask <- function(force = FALSE){
-
-	if(force)
-		return(TRUE)
+ask <- function(){
 
 	response <- readline("Do you want to proceed? (y/n)\n")
 	
