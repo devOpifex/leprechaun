@@ -43,6 +43,7 @@ test_that("update", {
   lock$uses$`endpoint-utils` <- new_version
   lock$uses$config <- new_version
   lock$uses$sass <- new_version
+  lock$uses$inputs <- new_version
   leprechaun:::lock_write(lock)
   expect_null(sitrep())
   expect_message(update_scaffold(FALSE))
