@@ -27,7 +27,7 @@ update_scaffold <- function(force = FALSE){
 		return(invisible())
 	}
 
-	proceed <- confirm_update()
+	proceed <- confirm_update(force)
 
 	if(!proceed){
 		cli_alert_danger("Aborting update")
@@ -224,6 +224,8 @@ update_inputs <- function(){
 #' Confirm with user that updates need to nbe made.
 #' Prints useful messages to decide whether to update.
 #' 
+#' @param force Force update, ignore safety checks.
+#' 
 #' @return Boolean indicating whether the user wants to
 #' proceed.
 #' 
@@ -231,7 +233,7 @@ update_inputs <- function(){
 #' 
 #' @noRd 
 #' @keywords internal
-confirm_update <- function(){
+confirm_update <- function(force = FALSE){
 	conf <- lock_read()
 
 	cli_h1("Updating leprechaun application")
@@ -256,9 +258,15 @@ confirm_update <- function(){
 
 #' Prompt the user for confirmation update
 #' 
+#' @param force Force update, ignore safety checks.
+#' 
 #' @keywords internal
 #' @noRd 
-ask <- function(){
+ask <- function(force = FALSE){
+
+	if(force)
+		return(TRUE)
+
 	response <- readline("Do you want to proceed? (y/n)\n")
 	
 	if(response != "y")

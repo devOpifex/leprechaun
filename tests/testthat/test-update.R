@@ -27,5 +27,5 @@ test_that("update", {
   lock$r$zzz <- new_version
   lock$r$inputs <- new_version
   lock_write(lock)
-  expect_message(update_scaffold())
+  expect_message(update_scaffold(force = TRUE))
 })
