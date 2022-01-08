@@ -30,3 +30,10 @@ Argument      |Description
 `overwrite`     |     Whether to force overwrite all files. This is not recommended, make sure you have save and/or committed and checked that the files that will be overwritten can be before proceeding with this option.
 
 
+## Examples
+
+```r
+scaffold()
+```
+
+

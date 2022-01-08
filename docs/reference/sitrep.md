@@ -16,3 +16,10 @@ sitrep()
 ```
 
 
+## Examples
+
+```r
+sitrep()
+```
+
+

@@ -35,4 +35,4 @@ leprechaun::scaffold()
 
 This effectively generates code within the package to run a 
 shiny application within a package: leprechaun _does not_ 
-become a dependence to your project.
+become a dependency to your project.

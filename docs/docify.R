@@ -1,6 +1,9 @@
 library(purrr)
 
-fs::file_copy("NEWS.md", "docs/NEWS.md", overwrite = TRUE)
+news <- readLines("NEWS.md")
+news <- gsub("#", "##", news)
+news <- c("# Changelog", "", news)
+writeLines(news, "docs/NEWS.md")
 
 fs::dir_delete("./docs/reference")
 fs::dir_create("./docs/reference")

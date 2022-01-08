@@ -29,3 +29,10 @@ This reads the content of the `.leprechaun` lock file
  and updates it too.
 
 
+## Examples
+
+```r
+update_scaffold()
+```
+
+

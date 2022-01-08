@@ -16,3 +16,10 @@ add_app_file()
 ```
 
 
+## Examples
+
+```r
+add_app_file()
+```
+
+

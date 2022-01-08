@@ -30,3 +30,10 @@ This requires [use_packer](#usepacker) .
  Also, it will require using [build](#build) .
 
 
+## Examples
+
+```r
+use_js_utils()
+```
+
+

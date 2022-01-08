@@ -16,3 +16,10 @@ build()
 ```
 
 
+## Examples
+
+```r
+build()
+```
+
+

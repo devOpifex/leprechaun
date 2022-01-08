@@ -22,3 +22,10 @@ Argument      |Description
 `quiet`     |     Whether to print messages to the console.
 
 
+## Examples
+
+```r
+create_onload()
+```
+
+

@@ -18,3 +18,15 @@ bootstrap_version()
 ```
 
 
+## Value
+
+An integer denoting the Bootstrap version.
+
+
+## Examples
+
+```r
+bootstrap_version()
+```
+
+

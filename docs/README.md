@@ -33,7 +33,7 @@ _leaner_, and _smaller_; hence the name "leprechaun."
 Golem is a great package, which, like probably most of you,
 I have used to build dozens of apps. However,
 
-1. It comes with numerous features I rarely use.
+1. It comes with numerous features not always required.
 2. It adds dependencies to my application.
 
 The two points above increase the size of applications and 

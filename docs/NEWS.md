@@ -1,11 +1,15 @@
-# leprechaun 1.0.1.9001
+# Changelog
+
+## leprechaun 1.0.1.9001
 
 - Added utils to enable and disable selectize js
 - Added comment to `app.R` for RStudio Deploy button
 - Fix input handler for list.
 - Fix registering of input handles: `.onAttach`.
+- Added warning comments to all template files.
+- Added examples
 
-# leprechaun 1.0.1.9000
+## leprechaun 1.0.1.9000
 
 - Assets supports added for serving `type = module`
 - Add `tag2` convenience function to htmltools plugin
@@ -24,6 +28,6 @@ was created with `fluidPage` or `navbarPage`: always create
 only prints useful messages.
 - Added `prefix` to `make_send_message`.
 
-# leprechaun 1.0.0.9000
+## leprechaun 1.0.0.9000
 
 - Initial version
