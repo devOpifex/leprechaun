@@ -18,9 +18,9 @@ Imports:
     fs,
     cli,
     usethis,
-    jsonlite,
-    bslib
+    jsonlite
 Suggests:
+    bslib,
     yaml,
     covr,
     sass,
