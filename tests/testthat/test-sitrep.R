@@ -1,7 +1,5 @@
 source("../fns.R")
 
-skip_on_cran()
-
 test_that("sitrep", {
   wd <- getwd()
   pkg <- create_tmp_package()
