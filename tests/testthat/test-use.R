@@ -68,6 +68,7 @@ test_that("use packer", {
   })
 
   scaffold()
+  expect_error(use_packer())
   packer::scaffold_leprechaun(edit = FALSE)
   expect_error(use_js_utils())
   expect_message(use_packer())

@@ -12,6 +12,7 @@ test_that("use sass", {
   })
 
   scaffold()
+  expect_message(build())
   packer::scaffold_leprechaun(edit = FALSE)
   use_packer()
   use_js_utils()
