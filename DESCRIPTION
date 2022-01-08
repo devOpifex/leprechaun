@@ -21,9 +21,9 @@ Imports:
     jsonlite,
     shiny,
     bslib,
-    htmltools,
-    yaml
+    htmltools
 Suggests:
+    yaml,
     covr,
     sass,
     packer,
