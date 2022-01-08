@@ -24,6 +24,7 @@ test_that("update", {
   use_sass()
   use_html_utils()
   use_endpoints_utils()
+  create_input_handlers()
   
   # manually change lock
   new_version <- "0.0.1"
