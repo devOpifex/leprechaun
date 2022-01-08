@@ -1,6 +1,6 @@
 source("../fns.R")
 
-#skip_on_cran()
+skip_on_cran()
 
 test_that("update", {
   wd <- getwd()
@@ -16,6 +16,12 @@ test_that("update", {
   expect_message(update_scaffold(TRUE))
   expect_null(update_scaffold(TRUE))
 
+  packer::scaffold_leprechaun(edit = FALSE)
+  use_packer()
+  use_js_utils()
+  use_config()
+  use_sass()
+  
   # manually change lock
   new_version <- "0.0.1"
   lock <- leprechaun:::lock_read()
@@ -26,6 +32,10 @@ test_that("update", {
   lock$r$`leprechaun-utils` <- new_version
   lock$r$zzz <- new_version
   lock$r$inputs <- new_version
+  lock$uses$packer <- new_version
+  lock$uses$`js-utils` <- new_version
+  lock$uses$config <- new_version
+  lock$uses$sass <- new_version
   leprechaun:::lock_write(lock)
   expect_message(update_scaffold(force = TRUE))
 })
