@@ -4,7 +4,7 @@
 \alias{update_scaffold}
 \title{Update}
 \usage{
-update_scaffold(force = FALSE)
+update_scaffold(force = !interactive())
 }
 \arguments{
 \item{force}{Force update, ignore safety checks.}

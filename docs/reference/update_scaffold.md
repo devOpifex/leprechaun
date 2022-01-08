@@ -12,7 +12,7 @@ Update the scaffolded code to a new version of
 ## Usage
 
 ```r
-update_scaffold(force = FALSE)
+update_scaffold(force = !interactive())
 ```
 
 
