@@ -19,14 +19,14 @@ Imports:
     cli,
     usethis,
     jsonlite,
-    shiny,
-    bslib,
-    htmltools
+    bslib
 Suggests:
     yaml,
     covr,
     sass,
+    htmltools,
     packer,
+    shiny,
     testthat (>= 3.0.0),
     pkgload
 Config/testthat/edition: 3
