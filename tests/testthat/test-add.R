@@ -13,4 +13,5 @@ test_that("add app file", {
 
   scaffold()
   expect_message(add_app_file())
+  expect_message(add_app_file())
 })

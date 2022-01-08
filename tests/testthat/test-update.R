@@ -13,6 +13,7 @@ test_that("update", {
 
   expect_error(update_scaffold(TRUE))
   scaffold()
+  expect_message(update_scaffold(FALSE))
   expect_message(update_scaffold(TRUE))
   expect_null(update_scaffold(TRUE))
 
@@ -21,6 +22,8 @@ test_that("update", {
   use_js_utils()
   use_config()
   use_sass()
+  use_html_utils()
+  use_endpoints_utils()
   
   # manually change lock
   new_version <- "0.0.1"
@@ -29,13 +32,17 @@ test_that("update", {
   lock$r$ui <- new_version
   lock$r$run <- new_version
   lock$r$server <- new_version
+  lock$r$assets <- new_version
   lock$r$`leprechaun-utils` <- new_version
   lock$r$zzz <- new_version
   lock$r$inputs <- new_version
   lock$uses$packer <- new_version
   lock$uses$`js-utils` <- new_version
+  lock$uses$`html-utils` <- new_version
+  lock$uses$`endpoint-utils` <- new_version
   lock$uses$config <- new_version
   lock$uses$sass <- new_version
   leprechaun:::lock_write(lock)
+  expect_null(sitrep())
   expect_message(update_scaffold(force = TRUE))
 })
