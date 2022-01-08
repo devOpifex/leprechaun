@@ -44,5 +44,6 @@ test_that("update", {
   lock$uses$sass <- new_version
   leprechaun:::lock_write(lock)
   expect_null(sitrep())
+  expect_message(update_scaffold(FALSE))
   expect_message(update_scaffold(force = TRUE))
 })
