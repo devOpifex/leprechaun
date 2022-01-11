@@ -1,8 +1,6 @@
 source("../fns.R")
 
-skip_on_cran()
-
-test_that("use sass", {
+test_that("use packer", {
   wd <- getwd()
   pkg <- create_tmp_package()
   setwd(pkg)
@@ -12,12 +10,10 @@ test_that("use sass", {
   })
 
   scaffold()
-  expect_message(build())
+  expect_error(use_packer())
   packer::scaffold_leprechaun(edit = FALSE)
-  use_packer()
-  use_js_utils()
-  use_sass()
-  use_packer()
-
-  expect_message(build())
+  expect_error(use_js_utils())
+  expect_message(use_packer())
+  expect_message(use_js_utils())
+  expect_null(use_packer())
 })
