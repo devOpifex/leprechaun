@@ -1,5 +1,7 @@
 source("../fns.R")
 
+skip_on_cran()
+
 test_that("use packer", {
   wd <- getwd()
   pkg <- create_tmp_package()
