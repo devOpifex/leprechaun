@@ -5,6 +5,9 @@
 - Fix input handler for list.
 - Fix registering of input handles; done `.onAttach`.
 - Fix `force` argument in `update_scaffold`.
+- Lock file store Bootstrap version used.
+- HTML utils depends on the version of Bootstrap used.
+- Add tests
 - Added warning comments to all template files.
 - Added examples
 

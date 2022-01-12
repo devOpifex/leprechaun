@@ -44,6 +44,11 @@ lock_write <- function(conf){
 	)
 }
 
+#' @keywords internal
+lock_get_bs_version <- function(){
+	lock_read()$bs_version
+}
+
 #' Change Lock
 #' 
 #' Change a `file` entry version in the lockfile.

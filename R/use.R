@@ -82,7 +82,6 @@ use_js_utils <- function(overwrite = FALSE, quiet = FALSE){
 #' 
 #' @export 
 use_html_utils <- function(overwrite = FALSE, quiet = FALSE){
-	# check
 	check_is_leprechaun()
 
 	if(!overwrite && file_exists("R/html-utils.R"))
@@ -92,8 +91,9 @@ use_html_utils <- function(overwrite = FALSE, quiet = FALSE){
 	
 	lock_use("html-utils")
 
+	source_file <- get_html_utils_file()
 	copy_file(
-		pkg_file("htmltools", "utils.R"),
+		pkg_file("htmltools", source_file),
 		c("R", "html-utils.R")
 	)
 

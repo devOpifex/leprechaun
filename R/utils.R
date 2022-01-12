@@ -189,3 +189,19 @@ require_build <- function(){
 	)
 	invisible()
 }
+
+#' HTML Template
+#' 
+#' Get the HTML utils file based
+#' on the version of bootstrap in use.
+#' 
+#' @noRd 
+#' @keywords internal
+get_html_utils_file <- function() {
+	bs_version <- lock_get_bs_version()
+
+	if(bs_version == 4)
+		return("utils_v4.R")
+
+	"utils_v5.R"
+}
