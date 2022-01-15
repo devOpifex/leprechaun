@@ -13,8 +13,20 @@ It helps build things, not run them.
 </Note>
 
 Some features will essentially add scripts to perform said 
-actions in the directory `inst/dev`. The function 
-`leprechaun::build()` can then be used to run those scripts.
+actions in the directory `inst/dev`. 
 
-Importantly, these are only meant to run when build the app/package,
-before or while the app is running!
+## Manual
+
+The function `leprechaun::build()` can then be used to 
+run those scripts.
+
+## Roclet
+
+You can also use a roxygen2 "roclet" (recommended) to run 
+`leprechaun::build()` when the package is documented 
+(with e.g.: `devtools::document`).
+To use the roclet edit the `DESCRIPTION`:
+
+```
+Roxygen: list(markdown = TRUE, roclets = c("namespace", "collate", "rd", "leprechaun::build_roclet"))
+```

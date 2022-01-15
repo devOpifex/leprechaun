@@ -18,7 +18,8 @@ Imports:
     fs,
     cli,
     usethis,
-    jsonlite
+    jsonlite,
+    roxygen2
 Suggests:
     bslib,
     yaml,

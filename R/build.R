@@ -8,6 +8,9 @@
 #' @examples 
 #' \dontrun{build()}
 #' 
+#' @importFrom roxygen2 roclet
+#' 
+#' @name build
 #' @export 
 build <- function(){
 	files <- list.files("inst/dev", pattern = ".R$")
@@ -23,4 +26,35 @@ build <- function(){
 	})
 
 	invisible()
+}
+
+#' Build Roclet
+#' 
+#' Roclet to run [build()] when documenting.
+#' 
+#' @import roxygen2
+#' 
+#' @export 
+build_roclet <- function() {
+	roclet("build")
+}
+
+#' @export 
+roclet_process.roclet_build <- function(
+	x, 
+	blocks, 
+	env, 
+	base_path
+) {
+	invisible()
+}
+
+#' @export 
+roclet_output.roclet_build <- function(
+	x, 
+	results, 
+	base_path, 
+	...
+) {
+	build()
 }

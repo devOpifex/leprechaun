@@ -13,6 +13,9 @@ Runs the various scripts that were created with
 
 ```r
 build()
+leprechaun_roclet()
+roclet_process.leprechaun_roclet(...)
+roclet_output.leprechaun_roclet(...)
 ```
 
 
