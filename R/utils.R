@@ -185,7 +185,7 @@ add_package <- function(package, type = "Imports", ...){
 #' @keywords internal
 require_build <- function(){
 	cli_alert_warning(
-		"This requires {.code leprechaun::build()}"
+		"This requires {.code leprechaun::build()} or the {.code leprechaun::build_roclet}"
 	)
 	invisible()
 }
