@@ -117,6 +117,8 @@ badge <- function(
 #' @param class Any additional class.
 #' @param color Color of the alert.
 #' 
+#' @importFrom htmltools div
+#' 
 #' @keywords internal
 alert <- function(..., class = "", color = "primary"){
 	cl <- sprintf("%s alert alert-%s", class, color)
