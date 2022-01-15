@@ -7,6 +7,7 @@
 - Fix `force` argument in `update_scaffold`.
 - Lock file store Bootstrap version used.
 - HTML utils depends on the version of Bootstrap used.
+- Added roclet for build command
 - Add tests
 - Added warning comments to all template files.
 - Added examples
