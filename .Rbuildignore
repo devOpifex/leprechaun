@@ -12,3 +12,4 @@
 ^webpack\.prod\.js$
 ^webpack\.common\.js$
 makefile
+^CRAN-SUBMISSION$
