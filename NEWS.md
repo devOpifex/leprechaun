@@ -1,4 +1,8 @@
-# leprechaun 1.0.1.9001
+# leprechaun 1.0.1.9000
+
+- Added roclet for build command
+
+# leprechaun 1.0.1
 
 - Added utils to enable and disable selectize js
 - Added comment to `app.R` for RStudio Deploy button
@@ -7,7 +11,6 @@
 - Fix `force` argument in `update_scaffold`.
 - Lock file store Bootstrap version used.
 - HTML utils depends on the version of Bootstrap used.
-- Added roclet for build command
 - Add tests
 - Added warning comments to all template files.
 - Added examples
