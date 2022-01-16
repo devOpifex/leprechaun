@@ -24,7 +24,7 @@ run those scripts.
 
 You can also use a roxygen2 "roclet" (recommended) to run 
 `leprechaun::build()` when the package is documented 
-(with e.g.: `devtools::document`).
+(with e.g.: `devtools::document()`).
 To use the roclet edit the `DESCRIPTION`:
 
 ```

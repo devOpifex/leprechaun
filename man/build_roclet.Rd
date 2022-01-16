@@ -8,4 +8,6 @@ build_roclet()
 }
 \description{
 Roclet to run \code{\link[=build]{build()}} when documenting.
+Meant to be used in \code{DESCRIPTION}, e.g.:
+\code{Roxygen: list(markdown = TRUE, roclets = c("namespace", "collate", "rd", "leprechaun::build_roclet"))}
 }

@@ -31,6 +31,8 @@ build <- function(){
 #' Build Roclet
 #' 
 #' Roclet to run [build()] when documenting.
+#' Meant to be used in `DESCRIPTION`, e.g.:
+#' `Roxygen: list(markdown = TRUE, roclets = c("namespace", "collate", "rd", "leprechaun::build_roclet"))`
 #' 
 #' @import roxygen2
 #' 
