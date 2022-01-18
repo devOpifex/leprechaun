@@ -9,7 +9,11 @@ Authors@R:
             email = "john@opifex.org"),
         person(family = "Opifex", role = "cph")
     )
-Description: Code generator for robust dependency-free 'Shiny' applications in the form of packages.
+Description: Code generator for robust dependency-free 'Shiny' 
+    applications in the form of packages. It includes numerous
+    convenience functions to create modules, include utility 
+    functions to create common 'Bootstrap' elements, setup a
+    project from the ground-up, and much more.
 License: GPL (>= 2)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
