@@ -1,9 +1,6 @@
-# leprechaun 1.0.1.9000
-
-- Added roclet for build command
-
 # leprechaun 1.0.1
 
+- Added roclet for build command
 - Added utils to enable and disable selectize js
 - Added comment to `app.R` for RStudio Deploy button
 - Fix input handler for list.
