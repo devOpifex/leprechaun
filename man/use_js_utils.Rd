@@ -11,6 +11,10 @@ use_js_utils(overwrite = FALSE, quiet = FALSE)
 
 \item{quiet}{Whether to print messages.}
 }
+\value{
+Invisibly returns a boolean indicating whether
+the operation was successful.
+}
 \description{
 Add utility JavaScript function, e.g.: to hide or show
 element in the DOM.

@@ -11,6 +11,10 @@ add_module(name)
 This is used to dynamically create the names of the
 functions and file.}
 }
+\value{
+Called for side-effects, invisibly returns
+\code{NULL}.
+}
 \description{
 Add boilerplate for a module.
 }

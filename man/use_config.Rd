@@ -9,6 +9,10 @@ use_config(quiet = FALSE)
 \arguments{
 \item{quiet}{Whether to print messages.}
 }
+\value{
+Invisibly returns a boolean indicating whether
+the operation was successful.
+}
 \description{
 Setup a configuration file and helper functions.
 }

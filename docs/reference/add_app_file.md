@@ -16,6 +16,12 @@ add_app_file()
 ```
 
 
+## Value
+
+Invisibly returns a boolean indicating
+ whether the operation was successful.
+
+
 ## Examples
 
 ```r

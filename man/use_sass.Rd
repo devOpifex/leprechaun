@@ -9,6 +9,10 @@ use_sass(quiet = FALSE)
 \arguments{
 \item{quiet}{Whether to print messages.}
 }
+\value{
+Invisibly returns a boolean indicating whether
+the operation was successful.
+}
 \description{
 Setup basic structure for sass and helper script for
 bundling.

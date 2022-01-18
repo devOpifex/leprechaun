@@ -6,6 +6,10 @@
 \usage{
 sitrep()
 }
+\value{
+Invisibly returns a boolean indicating whether
+the operation was successful.
+}
 \description{
 Run a check on the project, prints useful
 messages.

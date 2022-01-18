@@ -12,6 +12,9 @@
 #' @importFrom fs file_exists
 #' @importFrom cli cli_alert_success
 #' 
+#' @return Called for side-effects, invisibly returns
+#' `NULL`.
+#' 
 #' @export 
 add_module <- function(name){
 	check_is_leprechaun()
@@ -36,4 +39,5 @@ add_module <- function(name){
 		path,
 		module = name
 	)
+	invisible()
 }

@@ -22,6 +22,12 @@ Argument      |Description
 `quiet`     |     Whether to print messages.
 
 
+## Value
+
+Invisibly returns a boolean indicating whether
+ the operation was successful.
+
+
 ## Note
 
 This requires a scaffold of packer already in place.

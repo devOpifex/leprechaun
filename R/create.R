@@ -118,6 +118,9 @@ create_server <- function(quiet = FALSE){
 #' @examples 
 #' \dontrun{create_assets()}
 #' 
+#' @return Invisibly returns `NULL`, called for 
+#' side-effects.
+#' 
 #' @importFrom cli cli_alert_success
 #' 
 #' @export 

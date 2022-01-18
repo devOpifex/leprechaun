@@ -15,6 +15,9 @@
 #' @importFrom fs file_exists
 #' @importFrom cli cli_alert_success
 #' 
+#' @return Invisibly returns a boolean indicating whether
+#' the operation was successful.
+#' 
 #' @export 
 use_js_utils <- function(overwrite = FALSE, quiet = FALSE){
 	# checks
@@ -53,11 +56,11 @@ use_js_utils <- function(overwrite = FALSE, quiet = FALSE){
 
 	# file not found
 	if(!length(index))
-		return(invisible())
+		return(invisible(FALSE))
 
 	# if it's already imported we just skip it
 	if(any(grepl("leprechaun-utils.js", index)))
-		return(invisible())
+		return(invisible(FALSE))
 	
 	if(!quiet)
 		cli_alert_success("Added import statement to {.file srcjs/index.js}")
@@ -70,6 +73,7 @@ use_js_utils <- function(overwrite = FALSE, quiet = FALSE){
 	writeLines(index, con = index_path)
 
 	require_build()
+	invisible(TRUE)
 }
 
 #' Htmltools Utils
@@ -79,6 +83,9 @@ use_js_utils <- function(overwrite = FALSE, quiet = FALSE){
 #' 
 #' @param overwrite Whether to overwrite existing files.
 #' @param quiet Whether to print messages.
+#' 
+#' @return Invisibly returns a boolean indicating whether
+#' the operation was successful.
 #' 
 #' @export 
 use_html_utils <- function(overwrite = FALSE, quiet = FALSE){
@@ -102,7 +109,7 @@ use_html_utils <- function(overwrite = FALSE, quiet = FALSE){
 	if(!quiet)
 		cli_alert_success("Creating {.file R/html-utils.R}")
 
-	invisible()
+	invisible(TRUE)
 }
 
 #' Endpoints
@@ -112,6 +119,9 @@ use_html_utils <- function(overwrite = FALSE, quiet = FALSE){
 #' 
 #' @param overwrite Whether to overwrite existing files.
 #' @param quiet Whether to print messages.
+#' 
+#' @return Invisibly returns a boolean indicating whether
+#' the operation was successful.
 #' 
 #' @export 
 use_endpoints_utils <- function(overwrite = FALSE, quiet = FALSE){
@@ -135,7 +145,7 @@ use_endpoints_utils <- function(overwrite = FALSE, quiet = FALSE){
 	if(!quiet)
 		cli_alert_success("Creating {.file R/endpoint-utils.R}")
 
-	invisible()
+	invisible(TRUE)
 }
 
 #' Sass
@@ -150,6 +160,9 @@ use_endpoints_utils <- function(overwrite = FALSE, quiet = FALSE){
 #' @importFrom cli cli_alert_success
 #' @importFrom fs dir_copy file_copy
 #' @importFrom usethis use_build_ignore
+#' 
+#' @return Invisibly returns a boolean indicating whether
+#' the operation was successful.
 #' 
 #' @export 
 use_sass <- function(quiet = FALSE){
@@ -169,6 +182,7 @@ use_sass <- function(quiet = FALSE){
 	use_build_ignore("scss")
 
 	require_build()
+	invisible(TRUE)
 }
 
 use_sass_overwritable <- function(){
@@ -204,6 +218,9 @@ check_scss <- function(){
 #' 
 #' @importFrom cli cli_alert_success
 #' 
+#' @return Invisibly returns a boolean indicating whether
+#' the operation was successful.
+#' 
 #' @export 
 use_packer <- function(quiet = FALSE){
 	# basic checks before proceeding
@@ -220,6 +237,7 @@ use_packer <- function(quiet = FALSE){
 	lock_use("packer", get_pkg_version())
 
 	require_build()
+	invisible(TRUE)
 }
 
 #' Check Whether it is a packer project
@@ -256,6 +274,9 @@ check_packer <- function(){
 #' 
 #' @importFrom cli cli_alert_success
 #' 
+#' @return Invisibly returns a boolean indicating whether
+#' the operation was successful.
+#' 
 #' @export 
 use_config <- function(quiet = FALSE){
 	# basic checks before proceeding
@@ -282,6 +303,7 @@ use_config_overwritable <- function(){
 		"R/config.R"
 	)
 	lock_use("config", get_pkg_version())
+	invisible(TRUE)
 }
 
 #' Check that config does not exists

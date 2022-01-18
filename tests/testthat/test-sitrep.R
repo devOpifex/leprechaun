@@ -12,5 +12,5 @@ test_that("sitrep", {
   expect_message(sitrep())
   scaffold()
   expect_message(sitrep())
-  expect_null(sitrep())
+  expect_false(sitrep())
 })

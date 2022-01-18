@@ -11,6 +11,10 @@ use_endpoints_utils(overwrite = FALSE, quiet = FALSE)
 
 \item{quiet}{Whether to print messages.}
 }
+\value{
+Invisibly returns a boolean indicating whether
+the operation was successful.
+}
 \description{
 Add utility functions to create and serve
 session-specific endpoints.

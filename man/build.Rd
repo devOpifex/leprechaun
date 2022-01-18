@@ -6,6 +6,10 @@
 \usage{
 build()
 }
+\value{
+Invisibly returns a boolean indicating
+whether the operation was successful.
+}
 \description{
 Runs the various scripts that were created with
 \code{setup} functions.

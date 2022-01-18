@@ -6,6 +6,10 @@
 \usage{
 add_app_file()
 }
+\value{
+Invisibly returns a boolean indicating
+whether the operation was successful.
+}
 \description{
 Add the \code{app.R} required to run on RStudio Connect,
 RStudio server, and shinyapps.io.

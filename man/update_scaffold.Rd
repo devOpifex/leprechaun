@@ -9,6 +9,10 @@ update_scaffold(force = !interactive())
 \arguments{
 \item{force}{Force update, ignore safety checks.}
 }
+\value{
+Invisibly returns a boolean indicating whether
+the scaffold was updated.
+}
 \description{
 Update the scaffolded code to a new version of
 leprechaun.

@@ -10,6 +10,9 @@
 #' 
 #' @importFrom roxygen2 roclet
 #' 
+#' @return Invisibly returns a boolean indicating
+#' whether the operation was successful.
+#' 
 #' @name build
 #' @export 
 build <- function(){
@@ -17,7 +20,7 @@ build <- function(){
 
 	if(length(files) == 0){
 		cli_alert_warning("Nothing to build")
-		return()
+		return(invisible(FALSE))
 	}
 
 	sapply(files, function(file){
@@ -25,7 +28,7 @@ build <- function(){
 		source(file.path("inst", "dev", file))
 	})
 
-	invisible()
+	invisible(TRUE)
 }
 
 #' Build Roclet
@@ -35,6 +38,9 @@ build <- function(){
 #' `Roxygen: list(markdown = TRUE, roclets = c("namespace", "collate", "rd", "leprechaun::build_roclet"))`
 #' 
 #' @import roxygen2
+#' 
+#' @return An object of class `roclet` as expected
+#' by roxygen2.
 #' 
 #' @export 
 build_roclet <- function() {

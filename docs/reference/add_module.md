@@ -22,6 +22,12 @@ Argument      |Description
 `name`     |     Name of the module. This is used to dynamically create the names of the functions and file.
 
 
+## Value
+
+Called for side-effects, invisibly returns
+ `NULL` .
+
+
 ## Examples
 
 ```r

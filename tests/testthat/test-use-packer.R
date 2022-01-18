@@ -17,5 +17,5 @@ test_that("use packer", {
   expect_error(use_js_utils())
   expect_message(use_packer())
   expect_message(use_js_utils())
-  expect_null(use_packer())
+  expect_true(use_packer())
 })

@@ -20,6 +20,8 @@
 #' @importFrom fs file_exists
 #' @importFrom usethis use_build_ignore
 #' 
+#' @return Invisibly return `NULL`, called for side-effects.
+#' 
 #' @export 
 scaffold <- function(
 	ui = c("navbarPage", "fluidPage"),
@@ -76,4 +78,6 @@ scaffold <- function(
 	# ignore files
 	cli_h2("Ignoring files")
 	use_build_ignore(".leprechaun")
+
+	invisible()
 }

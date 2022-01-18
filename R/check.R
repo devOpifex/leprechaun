@@ -35,11 +35,14 @@ base_file_exist <- function() {
 #' 
 #' @importFrom cli cli_alert_danger cli_alert_warning cli_alert_success cli_alert_info
 #' 
+#' @return Invisibly returns a boolean indicating whether
+#' the operation was successful.
+#' 
 #' @export 
 sitrep <- function(){
 	if(!lock_exists()){
 		cli_alert_danger("Not a leprechaun project")
-		return(invisible())
+		return(invisible(FALSE))
 	}
 
 	identical_versions <- compare_versions()
@@ -48,7 +51,7 @@ sitrep <- function(){
 		cli_alert_success(
 			"Scaffold version and installed leprechaun version match ({.field {get_pkg_version()}}): all is well!"
 		)
-		return(invisible())
+		return(invisible(FALSE))
 	}
 
 	conf <- lock_read()
@@ -58,5 +61,5 @@ sitrep <- function(){
 	)
 	cli_alert_info("You may want to run  {.fn update_scaffold}")
 
-	invisible()
+	invisible(TRUE)
 }

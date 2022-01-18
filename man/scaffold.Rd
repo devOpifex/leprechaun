@@ -22,6 +22,9 @@ This is not recommended, make sure you have save and/or
 committed and checked that the files that will be overwritten
 can be before proceeding with this option.}
 }
+\value{
+Invisibly return \code{NULL}, called for side-effects.
+}
 \description{
 Scaffolds a leprechaun project.
 This must be run from within a package

@@ -9,6 +9,10 @@ create_assets(quiet = FALSE)
 \arguments{
 \item{quiet}{Whether to print messages to the console.}
 }
+\value{
+Invisibly returns \code{NULL}, called for
+side-effects.
+}
 \description{
 Create assets function and file \code{assets.R}.
 }

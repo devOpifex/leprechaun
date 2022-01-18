@@ -6,6 +6,10 @@
 \usage{
 build_roclet()
 }
+\value{
+An object of class \code{roclet} as expected
+by roxygen2.
+}
 \description{
 Roclet to run \code{\link[=build]{build()}} when documenting.
 Meant to be used in \code{DESCRIPTION}, e.g.:

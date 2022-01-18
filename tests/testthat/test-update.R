@@ -13,7 +13,7 @@ test_that("update", {
   scaffold()
   expect_message(update_scaffold(FALSE))
   expect_message(update_scaffold(TRUE))
-  expect_null(update_scaffold(TRUE))
+  expect_true(update_scaffold(TRUE))
 
   use_config()
   use_sass()
@@ -38,7 +38,7 @@ test_that("update", {
   lock$uses$sass <- new_version
   lock$uses$inputs <- new_version
   leprechaun:::lock_write(lock)
-  expect_null(sitrep())
+  expect_true(sitrep())
   expect_message(update_scaffold(FALSE))
   expect_message(update_scaffold(force = TRUE))
 })

@@ -11,6 +11,10 @@ use_html_utils(overwrite = FALSE, quiet = FALSE)
 
 \item{quiet}{Whether to print messages.}
 }
+\value{
+Invisibly returns a boolean indicating whether
+the operation was successful.
+}
 \description{
 Add htmltools utility functions, e.g.: shorthands to
 create columns.

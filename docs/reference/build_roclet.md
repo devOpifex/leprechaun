@@ -17,3 +17,9 @@ build_roclet()
 ```
 
 
+## Value
+
+An object of class `roclet` as expected
+ by roxygen2.
+
+

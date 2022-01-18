@@ -16,6 +16,12 @@ sitrep()
 ```
 
 
+## Value
+
+Invisibly returns a boolean indicating whether
+ the operation was successful.
+
+
 ## Examples
 
 ```r

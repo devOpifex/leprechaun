@@ -13,6 +13,9 @@
 #' 
 #' @importFrom cli cli_alert_success cli_alert_warning cli_alert_danger
 #' 
+#' @return Invisibly returns a boolean indicating whether
+#' the scaffold was updated.
+#' 
 #' @export 
 update_scaffold <- function(force = !interactive()){
 	check_is_leprechaun()
@@ -24,14 +27,14 @@ update_scaffold <- function(force = !interactive()){
 		cli_alert_warning(
 			"Scaffold version and installed leprechaun version match ({.field {get_pkg_version()}}): nothing to update"
 		)
-		return(invisible())
+		return(invisible(FALSE))
 	}
 
 	proceed <- confirm_update(force)
 
 	if(!proceed){
 		cli_alert_danger("Aborting update")
-		return()
+		return(invisible(FALSE))
 	}
 
 	cli_alert_success(
@@ -42,7 +45,7 @@ update_scaffold <- function(force = !interactive()){
 	update_use()
 	update_main()
 
-	invisible()
+	invisible(TRUE)
 }
 
 #' @noRd 
@@ -160,6 +163,8 @@ update_endpoint_utils <- function(){
 }
 
 #' Update R
+#' 
+#' Updates relevant files in the R directory.
 #' 
 #' @noRd 
 #' @keywords internal

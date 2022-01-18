@@ -22,6 +22,12 @@ Argument      |Description
 `quiet`     |     Whether to print messages to the console.
 
 
+## Value
+
+Invisibly returns `NULL` , called for
+ side-effects.
+
+
 ## Examples
 
 ```r
