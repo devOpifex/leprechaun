@@ -4,9 +4,15 @@ Code generator for _lean_ and _robust_ shiny applications.
 
 ## Get it
 
-It's not yet on CRAN, get it from Github.
+__Stable__
 
-```r
+``` r
+install.packages("leprechaun")
+```
+
+__Development__
+
+``` r
 # install.packages("remotes")
 remotes::install_github("devOpifex/leprechaun")
 ```
@@ -22,7 +28,7 @@ of functions to selectively add them to your project. e.g.:
 to add utility JavaScript functions to hide or show elements
 in the DOM.
 
-## The elephant in the room
+## The golem in the room
 
 Leprechaun is indeed very similar to 
 [golem](https://golemverse.org/) but it differs in some ways.

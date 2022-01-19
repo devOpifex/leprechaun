@@ -17,7 +17,13 @@ Leprechaun allows you to generate _lean_ and _robust_
 
 ## Get it
 
-Leprechaun is not yet on CRAN, get it from Github.
+__Stable__
+
+``` r
+install.packages("leprechaun")
+```
+
+__Development__
 
 ``` r
 # install.packages("remotes")
