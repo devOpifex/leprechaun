@@ -1,11 +1,8 @@
 # Changelog
 
-## leprechaun 1.0.1.9000
+## leprechaun 1.0.0
 
 - Added roclet for build command
-
-## leprechaun 1.0.1
-
 - Added utils to enable and disable selectize js
 - Added comment to `app.R` for RStudio Deploy button
 - Fix input handler for list.
@@ -16,9 +13,6 @@
 - Add tests
 - Added warning comments to all template files.
 - Added examples
-
-## leprechaun 1.0.1.9000
-
 - Assets supports added for serving `type = module`
 - Add `tag2` convenience function to htmltools plugin
 - Add `run_dev` function that runs the build step before
@@ -36,6 +30,6 @@ was created with `fluidPage` or `navbarPage`: always create
 only prints useful messages.
 - Added `prefix` to `make_send_message`.
 
-## leprechaun 1.0.0.9000
+## leprechaun 0.1.0.9000
 
 - Initial version

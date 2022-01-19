@@ -1,4 +1,4 @@
-# leprechaun 1.0.1
+# leprechaun 1.0.0
 
 - Added roclet for build command
 - Added utils to enable and disable selectize js
@@ -11,9 +11,6 @@
 - Add tests
 - Added warning comments to all template files.
 - Added examples
-
-# leprechaun 1.0.1.9000
-
 - Assets supports added for serving `type = module`
 - Add `tag2` convenience function to htmltools plugin
 - Add `run_dev` function that runs the build step before
@@ -31,6 +28,6 @@ was created with `fluidPage` or `navbarPage`: always create
 only prints useful messages.
 - Added `prefix` to `make_send_message`.
 
-# leprechaun 1.0.0.9000
+# leprechaun 0.1.0.9000
 
 - Initial version
