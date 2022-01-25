@@ -13,3 +13,4 @@
 ^webpack\.common\.js$
 makefile
 ^CRAN-SUBMISSION$
+^\.lintr$

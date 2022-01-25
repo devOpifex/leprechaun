@@ -1,0 +1,10 @@
+linters: with_defaults(
+  line_length_linter(120), 
+  trailing_blank_lines_linter = NULL,
+  trailing_whitespace_linter = NULL,
+  no_tab_linter = NULL,
+  paren_brace_linter = NULL,
+  spaces_left_parentheses_linter = NULL,
+  object_usage_linter = NULL
+  )
+encoding: "UTF-8"
