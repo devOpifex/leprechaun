@@ -1,13 +1,5 @@
-source("../fns.R")
-
 test_that("use sass", {
-  wd <- getwd()
-  pkg <- create_tmp_package()
-  setwd(pkg)
-  on.exit({
-    setwd(wd)
-    delete_tmp_package(pkg)
-  })
+  with_temp_package()
 
   scaffold()
   expect_message(use_sass())
@@ -15,13 +7,7 @@ test_that("use sass", {
 })
 
 test_that("use config", {
-  wd <- getwd()
-  pkg <- create_tmp_package()
-  setwd(pkg)
-  on.exit({
-    setwd(wd)
-    delete_tmp_package(pkg)
-  })
+  with_temp_package()
 
   scaffold()
   expect_message(use_config())
@@ -29,13 +15,7 @@ test_that("use config", {
 })
 
 test_that("use html", {
-  wd <- getwd()
-  pkg <- create_tmp_package()
-  setwd(pkg)
-  on.exit({
-    setwd(wd)
-    delete_tmp_package(pkg)
-  })
+  with_temp_package()
 
   scaffold()
   expect_message(use_html_utils())
@@ -43,13 +23,7 @@ test_that("use html", {
 })
 
 test_that("use endpoints", {
-  wd <- getwd()
-  pkg <- create_tmp_package()
-  setwd(pkg)
-  on.exit({
-    setwd(wd)
-    delete_tmp_package(pkg)
-  })
+  with_temp_package()
 
   scaffold()
   expect_message(use_endpoints_utils())
