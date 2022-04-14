@@ -26,6 +26,10 @@ serveAssets <- function(modules = NULL){
 		recursive = TRUE,
 		pattern = ".css$"
 	)
+
+  # exclude specifically html/R.css from a built package
+  # solves https://github.com/devOpifex/leprechaun/issues/4
+  css <- css[css != "html/R.css"]
 	
 	# so dependency processes correctly
 	names(css) <- rep("file", length(css))
