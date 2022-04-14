@@ -1,15 +1,7 @@
-source("../fns.R")
-
 skip_on_cran()
 
 test_that("update", {
-  wd <- getwd()
-  pkg <- create_tmp_package()
-  setwd(pkg)
-  on.exit({
-    setwd(wd)
-    delete_tmp_package(pkg)
-  })
+  with_temp_package()
 
   expect_error(update_scaffold(TRUE))
   scaffold()
