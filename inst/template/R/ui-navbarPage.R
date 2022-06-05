@@ -32,12 +32,16 @@ ui <- function(req){
 #' [serveAssets] and allows easily adding additional
 #' remote dependencies (e.g.: CDN) should there be any.
 #' 
+#' @param ignore A vector of files to ignore.
+#' This can be useful for scripts that should not be 
+#' placed in the `<head>` of the HTML.
+#' 
 #' @importFrom shiny tags
 #' 
 #' @keywords internal
-assets <- function(){
+assets <- function(ignore = NULL){
 	list(
-		serveAssets(), # base assets (assets.R)
+		serveAssets(ignore = ignore), # base assets (assets.R)
 		tags$head(
 			# Place any additional depdendencies here
 			# e.g.: CDN

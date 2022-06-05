@@ -1,5 +1,9 @@
 # Changelog
 
+## leprechaun 1.0.0.9000
+
+- Allow ignoring files in `assets`.
+
 ## leprechaun 1.0.0
 
 - Added roclet for build command

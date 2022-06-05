@@ -6,10 +6,13 @@
 #' 
 #' @param modules JavaScript files names that require 
 #' the `type = module`.
+#' @param ignore A vector of files to ignore.
+#' This can be useful for scripts that should not be 
+#' placed in the `<head>` of the HTML.
 #' @importFrom htmltools htmlDependency
 #' 
 #' @keywords internal
-serveAssets <- function(modules = NULL){
+serveAssets <- function(modules = NULL, ignore = c()){
 	# JavaScript files
 	javascript <- list.files(
 		system.file(package = "#PKGNAME#"), 
@@ -34,6 +37,11 @@ serveAssets <- function(modules = NULL){
 	# so dependency processes correctly
 	names(css) <- rep("file", length(css))
 	names(javascript) <- rep("file", length(javascript))
+
+	# remove ignored files
+	ignore_pat <- paste0(ignore, collapse = "|", sep ="$")
+	css <- css[!grepl(ignore_pat, css)]
+	javascript <- javascript[!grepl(ignore_pat, javascript)]
 
 	# serve dependencies
 	dependencies <- list()
