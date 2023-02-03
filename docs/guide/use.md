@@ -145,7 +145,7 @@ Imports:
 
 - [htmltools](https://github.com/rstudio/htmltools)
 
-## Enpoints
+## Endpoints
 
 There is also a set of functions to help set up 
 session-dependent endpoints.
