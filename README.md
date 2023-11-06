@@ -8,7 +8,7 @@
 
 <img src="docs/_assets/leprechaun.png" height=200>
 
-[Quick Start](https://leprechaun.opifex.org/#/guide/quick-start) | [Docs](https://leprechaun.opifex.org)
+[Quick Start](https://leprechaun.opifex.org/#/guide/quick-start) | [Docs](https://leprechaun.opifex.org) | [Shiny App-Packages](https://mjfrigaard.github.io/shinyap/leprechaun.html)
 
 Leprechaun allows you to generate _lean_ and _robust_ 
 [shiny](https://shiny.rstudio.com/) applications.
