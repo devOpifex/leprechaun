@@ -4,6 +4,7 @@
 ![](https://img.shields.io/badge/license-Apache%202-blue)
 [![R-CMD-check](https://github.com/devOpifex/leprechaun/workflows/R-CMD-check/badge.svg)](https://github.com/devOpifex/leprechaun/actions)
 [![Codecov test coverage](https://codecov.io/gh/devOpifex/leprechaun/branch/master/graph/badge.svg)](https://app.codecov.io/gh/devOpifex/leprechaun?branch=master)
+[![R-CMD-check](https://github.com/devOpifex/leprechaun/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/devOpifex/leprechaun/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 <img src="docs/_assets/leprechaun.png" height=200>
