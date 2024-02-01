@@ -37,3 +37,6 @@ Suggests:
     withr,
     purrr
 Config/testthat/edition: 3
+URL: https://leprechaun.opifex.org/, https://github.com/devOpifex/leprechaun
+BugReports: https://github.com/devOpifex/leprechaun/issues
+
