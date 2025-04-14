@@ -73,7 +73,6 @@ send `text` to the `show-packer` message handler.
 ```r
 server <- function(input, output, session){
 	send_message <- make_send_message(session)	
-	home_server('id')
 
 	send_message("show-packer", text = "Hello leprechaun!")
 }
