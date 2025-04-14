@@ -1,12 +1,8 @@
-# `create_assets`
-
-Create Assets
-
+# Create Assets
 
 ## Description
 
-Create assets function and file `assets.R` .
-
+Create assets function and file `assets.R`.
 
 ## Usage
 
@@ -14,24 +10,18 @@ Create assets function and file `assets.R` .
 create_assets(quiet = FALSE)
 ```
 
-
 ## Arguments
 
-Argument      |Description
-------------- |----------------
-`quiet`     |     Whether to print messages to the console.
-
+* `quiet`: Whether to print messages to the console.
 
 ## Value
 
-Invisibly returns `NULL` , called for
- side-effects.
-
+Invisibly returns `NULL`, called for
+side-effects.
 
 ## Examples
 
 ```r
 create_assets()
 ```
-
 

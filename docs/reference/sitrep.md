@@ -1,13 +1,9 @@
-# `sitrep`
-
-Sitrep
-
+# Sitrep
 
 ## Description
 
 Run a check on the project, prints useful
- messages.
-
+messages.
 
 ## Usage
 
@@ -15,17 +11,14 @@ Run a check on the project, prints useful
 sitrep()
 ```
 
-
 ## Value
 
 Invisibly returns a boolean indicating whether
- the operation was successful.
-
+the operation was successful.
 
 ## Examples
 
 ```r
 sitrep()
 ```
-
 

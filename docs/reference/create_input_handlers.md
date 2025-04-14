@@ -1,12 +1,8 @@
-# `create_input_handlers`
-
-Create Input Handlers
-
+# Create Input Handlers
 
 ## Description
 
-Create input handlers functions and file `inputs-handlers.R` .
-
+Create input handlers functions and file `inputs-handlers.R`.
 
 ## Usage
 
@@ -14,18 +10,13 @@ Create input handlers functions and file `inputs-handlers.R` .
 create_input_handlers(quiet = FALSE)
 ```
 
-
 ## Arguments
 
-Argument      |Description
-------------- |----------------
-`quiet`     |     Whether to print messages to the console.
-
+* `quiet`: Whether to print messages to the console.
 
 ## Examples
 
 ```r
 create_input_handlers()
 ```
-
 

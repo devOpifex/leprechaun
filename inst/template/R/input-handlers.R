@@ -3,42 +3,42 @@
 #---------------------------------------------#
 
 #' Input Dataframe
-#' 
+#'
 #' Converts the input received from the WebSocket
 #' to a data.frame.
-#' 
+#'
 #' @param data Input data received from WebSocket.
-#' 
+#'
 #' @keywords internal
-leprechaun_handler_df <- function(data){
-	do.call("rbind", lapply(data))
+leprechaun_handler_df <- function(data) {
+  do.call("rbind", lapply(data))
 }
 
 #' Input List
-#' 
-#' Forces the input received from the WebSocket 
+#'
+#' Forces the input received from the WebSocket
 #' to a list. This should really not be needed as
 #' it is handled like so by default.
-#' 
+#'
 #' @param data Input data received from WebSocket.
-#' 
+#'
 #' @keywords internal
-leprechaun_handler_list <- function(data){
-	return(data)
+leprechaun_handler_list <- function(data) {
+  return(data)
 }
 
 .onAttach <- function(...) {
-	shiny::registerInputHandler(
-		"#PKGNAME#.list", 
-		leprechaun_handler_list, 
-		force = TRUE
-	)
+  shiny::registerInputHandler(
+    "#PKGNAME#.list",
+    leprechaun_handler_list,
+    force = TRUE
+  )
 
-	shiny::registerInputHandler(
-		"#PKGNAME#.df", 
-		leprechaun_handler_df, 
-		force = TRUE
-	)
+  shiny::registerInputHandler(
+    "#PKGNAME#.df",
+    leprechaun_handler_df,
+    force = TRUE
+  )
 }
 
 #---------------------------------------------#

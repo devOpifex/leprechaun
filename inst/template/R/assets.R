@@ -3,113 +3,113 @@
 #---------------------------------------------#
 
 #' Dependencies
-#' 
-#' @param modules JavaScript files names that require 
+#'
+#' @param modules JavaScript files names that require
 #' the `type = module`.
 #' @param ignore A vector of files to ignore.
-#' This can be useful for scripts that should not be 
+#' This can be useful for scripts that should not be
 #' placed in the `<head>` of the HTML.
 #' @importFrom htmltools htmlDependency
-#' 
+#'
 #' @keywords internal
-serveAssets <- function(modules = NULL, ignore = c()){
-	# JavaScript files
-	javascript <- list.files(
-		system.file(package = "#PKGNAME#"), 
-		recursive = TRUE, 
-		pattern = ".js$"
-	)
+serveAssets <- function(modules = NULL, ignore = c()) {
+  # JavaScript files
+  javascript <- list.files(
+    system.file(package = "#PKGNAME#"),
+    recursive = TRUE,
+    pattern = ".js$"
+  )
 
-	modules <- get_modules(javascript, modules)
-	javascript <- remove_modules(javascript, modules)
+  modules <- get_modules(javascript, modules)
+  javascript <- remove_modules(javascript, modules)
 
-	# CSS files
-	css <- list.files(
-		system.file(package = "#PKGNAME#"), 
-		recursive = TRUE,
-		pattern = ".css$"
-	)
+  # CSS files
+  css <- list.files(
+    system.file(package = "#PKGNAME#"),
+    recursive = TRUE,
+    pattern = ".css$"
+  )
 
   # exclude specifically html/R.css from a built package
   # solves https://github.com/devOpifex/leprechaun/issues/4
   css <- css[css != "html/R.css"]
-	
-	# so dependency processes correctly
-	names(css) <- rep("file", length(css))
-	names(javascript) <- rep("file", length(javascript))
 
-	# remove ignored files
-	ignore_pat <- paste0(ignore, collapse = "|", sep ="$")
-	css <- css[!grepl(ignore_pat, css)]
-	javascript <- javascript[!grepl(ignore_pat, javascript)]
+  # so dependency processes correctly
+  names(css) <- rep("file", length(css))
+  names(javascript) <- rep("file", length(javascript))
 
-	# serve dependencies
-	dependencies <- list()
-	
-	standard <- htmlDependency(
-		"#PKGNAME#",
-		version = utils::packageVersion("#PKGNAME#"),
-		package = "#PKGNAME#",
-		src = ".",
-		script = javascript,
-		stylesheet = css
-	)
-	dependencies <- append(dependencies, list(standard))
+  # remove ignored files
+  if (length(ignore) > 0) {
+    ignore_pat <- paste0(ignore, collapse = "|", sep = "$")
+    css <- css[!grepl(ignore_pat, css)]
+    javascript <- javascript[!grepl(ignore_pat, javascript)]
+  }
 
-	if(!is.null(modules)){
-		modules <- htmlDependency(
-			"#PKGNAME#-modules",
-			version = utils::packageVersion("#PKGNAME#"),
-			package = "#PKGNAME#",
-			src = ".",
-			script = modules,
-			meta = list(type = "module")
-		)
-		dependencies <- append(dependencies, list(modules))
-	}
+  # serve dependencies
+  dependencies <- list()
 
-	return(dependencies)
+  standard <- htmlDependency(
+    "#PKGNAME#",
+    version = utils::packageVersion("#PKGNAME#"),
+    package = "#PKGNAME#",
+    src = ".",
+    script = javascript,
+    stylesheet = css
+  )
+  dependencies <- append(dependencies, list(standard))
+
+  if (!is.null(modules)) {
+    modules <- htmlDependency(
+      "#PKGNAME#-modules",
+      version = utils::packageVersion("#PKGNAME#"),
+      package = "#PKGNAME#",
+      src = ".",
+      script = modules,
+      meta = list(type = "module")
+    )
+    dependencies <- append(dependencies, list(modules))
+  }
+
+  return(dependencies)
 }
 
 #' Module
-#' 
+#'
 #' Retrieve and add modules from a vector of files.
-#' 
+#'
 #' @param files JavaScript files
-#' @param modules JavaScript files names that require 
+#' @param modules JavaScript files names that require
 #' the `type = module`.
 #' @importFrom htmltools htmlDependency
-#' 
+#'
 #' @keywords internal
 #' @name js-modules
-remove_modules <- function(files, modules){
-	if(is.null(modules))
-		return(files)
+remove_modules <- function(files, modules) {
+  if (is.null(modules)) return(files)
 
-	# make pattern
-	pattern <- collapse_files(modules)
+  # make pattern
+  pattern <- collapse_files(modules)
 
-	# remove modules
-	files[!grepl(pattern, files)]
+  # remove modules
+  files[!grepl(pattern, files)]
 }
 
 #' @rdname js-modules
 #' @keywords internal
-get_modules <- function(files, modules){
-	if(is.null(modules))
-		return(NULL)
+get_modules <- function(files, modules) {
+  if (is.null(modules)) return(NULL)
 
-	# make pattern
-	pattern <- collapse_files(modules)
+  # make pattern
+  pattern <- collapse_files(modules)
 
-	# remove modules
-	files[grepl(pattern, files)]
+  # remove modules
+  files[grepl(pattern, files)]
 }
 
 # collapse files into a pattern
-collapse_files <- function(files){
-	pattern <- paste0(files, collapse = "$|")
-	paste0(pattern, "$")
+collapse_files <- function(files) {
+  pattern <- paste0(files, collapse = "$|")
+  paste0(pattern, "$")
 }
 
 #---------------------------------------------#

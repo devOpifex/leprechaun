@@ -1,13 +1,9 @@
-# `use_sass`
-
-Sass
-
+# Sass
 
 ## Description
 
 Setup basic structure for sass and helper script for
- bundling.
-
+bundling.
 
 ## Usage
 
@@ -15,22 +11,16 @@ Setup basic structure for sass and helper script for
 use_sass(quiet = FALSE)
 ```
 
-
 ## Arguments
 
-Argument      |Description
-------------- |----------------
-`quiet`     |     Whether to print messages.
+* `quiet`: Whether to print messages.
 
+## Note
+
+This will require using [build](build).
 
 ## Value
 
 Invisibly returns a boolean indicating whether
- the operation was successful.
-
-
-## Note
-
-This will require using [build](#build) .
-
+the operation was successful.
 

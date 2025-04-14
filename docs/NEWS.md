@@ -1,5 +1,9 @@
 # Changelog
 
+## leprechaun 1.0.0.9001
+
+- Fix ignoring of assets added in previous version (thanks to [Martin J Frigaard](https://github.com/mjfrigaard))
+
 ## leprechaun 1.0.0.9000
 
 - Allow ignoring files in `assets`.

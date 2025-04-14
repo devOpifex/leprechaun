@@ -1,12 +1,8 @@
-# `use_config`
-
-Config
-
+# Config
 
 ## Description
 
 Setup a configuration file and helper functions.
-
 
 ## Usage
 
@@ -14,17 +10,12 @@ Setup a configuration file and helper functions.
 use_config(quiet = FALSE)
 ```
 
-
 ## Arguments
 
-Argument      |Description
-------------- |----------------
-`quiet`     |     Whether to print messages.
-
+* `quiet`: Whether to print messages.
 
 ## Value
 
 Invisibly returns a boolean indicating whether
- the operation was successful.
-
+the operation was successful.
 

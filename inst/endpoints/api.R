@@ -6,109 +6,108 @@
 http_response <- utils::getFromNamespace("httpResponse", "shiny")
 
 #' Retrieve the Default Serialiser
-#' 
+#'
 #' Retrieves the `LEPRECHAUN_SERIALISER` option,
 #' if not defined, it returns `default_json_serialiser`.
-#' 
+#'
 #' @keywords internal
-get_json_serialiser <- function(){
-	getOption("LEPRECHAUN_SERIALISER", default_json_serialiser)
+get_json_serialiser <- function() {
+  getOption("LEPRECHAUN_SERIALISER", default_json_serialiser)
 }
 
 #' Default Serialiser
-#' 
+#'
 #' Default serialiser used by leprechaun.
 #' To change this serialiser set the
 #' `LEPRECHAUN_SERLIASER` option to the function
 #' you want to use. This function must accept a
 #' single argument, the dataset to serialise.
-#' 
+#'
 #' @param data Dataset to serialise.
-#' 
+#'
 #' @importFrom jsonlite toJSON
-#' 
+#'
 #' @keywords internal
-default_json_serialiser <- function(data){
-	if(missing(data))
-		stop("Missing data", call. = FALSE)
-	
-	toJSON(data, dataframe = "rows", auto_unbox = TRUE)
+default_json_serialiser <- function(data) {
+  if (missing(data)) stop("Missing data", call. = FALSE)
+
+  toJSON(data, dataframe = "rows", auto_unbox = TRUE)
 }
 
 #' Return a JSON Response
-#' 
+#'
 #' Return a json response, used for `session$registerDataObj`.
-#' 
+#'
 #' @keywords internal
-http_response_json <- function(content, headers = list()){
-	serialise <- get_json_serialiser()
+http_response_json <- function(content, headers = list()) {
+  serialise <- get_json_serialiser()
 
   http_response(
     content = serialise(content),
-		status = 200L, 
+    status = 200L,
     content_type = "application/json",
-		headers = headers
+    headers = headers
   )
 }
 
 # create a random name for the endpoint
-random_endpoint_name <- function(){
-	paste0(sample(letters, 26), collapse = "")
+random_endpoint_name <- function() {
+  paste0(sample(letters, 26), collapse = "")
 }
 
 #' Register an Endpoint
-#' 
+#'
 #' Register an endpoint to make data accessible from the
 #' session's browser.
-#' 
+#'
 #' @param data Dataset to expose/reprocess by `fn`.
 #' @param fn Function to preprocess `data`. This function
 #' must accept 1) the `data` and 2) the `request` from
 #' the browser. This function must return a response,
 #' see [http_response_json].
 #' @param session A valid shiny session object.
-#' 
+#'
 #' @keywords internal
 register_endpoint <- function(
-	data, 
-	fn, 
-	session = shiny::getDefaultReactiveDomain()
-){
-	session$registerDataObj(
-		random_endpoint_name(),
-		data,
-		filterFunc = fn
-	)
+  data,
+  fn,
+  session = shiny::getDefaultReactiveDomain()
+) {
+  session$registerDataObj(
+    random_endpoint_name(),
+    data,
+    filterFunc = fn
+  )
 }
 
 #' Register a JSON Endpoint
-#' 
+#'
 #' Register an endpoint to make data accessible from the
 #' session's browser.
-#' 
+#'
 #' @param data Dataset to expose/reprocess by `fn`.
 #' @param fn Function to preprocess `data`. This function
 #' must accept 1) the `data` and 2) the `request` from
 #' the browser. This function must return a dataset,
 #' to serialise to JSON [http_response_json].
 #' @param session A valid shiny session object.
-#' 
+#'
 #' @keywords internal
 register_endpoint_json <- function(
-	data, 
-	fn, 
-	session = shiny::getDefaultReactiveDomain()
-){
-	fun <- function(data, req){
-		data <- fn(data, req)
-		http_response_json(data)
-	}
+  data,
+  fn,
+  session = shiny::getDefaultReactiveDomain()
+) {
+  fun <- function(data, req) {
+    data <- fn(data, req)
+    http_response_json(data)
+  }
 
-	session$registerDataObj(
-		random_endpoint_name(),
-		data,
-		filterFunc = fun
-	)
+  session$registerDataObj(
+    random_endpoint_name(),
+    data,
+    filterFunc = fun
+  )
 }
 
 #---------------------------------------------#

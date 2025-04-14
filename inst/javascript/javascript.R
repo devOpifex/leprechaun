@@ -3,10 +3,10 @@
 #---------------------------------------------#
 
 #' Element Display
-#' 
+#'
 #' Show, hide, or toggle element visiblity of elements in
 #' the DOM.
-#' 
+#'
 #' @param selector A CSS selector. If no selector
 #' is recognised and `process_selector` is set to
 #' `TRUE` then it is assumed to be an id.
@@ -15,122 +15,119 @@
 #' @param process_selector Whether to pre-process the
 #' `selector` argument to ensure a valid CSS selector
 #' is passed.
-#' 
-#' @examples 
+#'
+#' @examples
 #' library(shiny)
-#' 
+#'
 #' ui <- fluidPage(
 #' 	actionButton("show", "Show"),
-#' 	p(id = "element", "Hello", style = "display:none;")	
+#' 	p(id = "element", "Hello", style = "display:none;")
 #' )
-#' 
+#'
 #' server <- function(input, output, session){
 #' 	observeEvent(input$show, {
 #' 		show("element")
 #' 	})
 #' }
-#' 
+#'
 #' if(interactive())
 #' 	shinyApp(ui, server)
-#' 
+#'
 #' @name js-visible
 #' @keywords internal
 show <- function(
-	selector, 
-	process_selector = TRUE,
-	session = shiny::getDefaultReactiveDomain()
-){
-	selector <- make_selector(selector, process_selector)
-	session$sendCustomMessage('leprechaun-show', list(selector = selector))
+  selector,
+  process_selector = TRUE,
+  session = shiny::getDefaultReactiveDomain()
+) {
+  selector <- make_selector(selector, process_selector)
+  session$sendCustomMessage('leprechaun-show', list(selector = selector))
 }
 
 #' @rdname js-visible
 #' @keywords internal
 hide <- function(
-	selector, 
-	process_selector = TRUE,
-	session = shiny::getDefaultReactiveDomain()
-){
-	selector <- make_selector(selector, process_selector)
-	session$sendCustomMessage('leprechaun-hide', list(selector = selector))
+  selector,
+  process_selector = TRUE,
+  session = shiny::getDefaultReactiveDomain()
+) {
+  selector <- make_selector(selector, process_selector)
+  session$sendCustomMessage('leprechaun-hide', list(selector = selector))
 }
 
 #' @rdname js-visible
 #' @keywords internal
 toggle <- function(
-	selector, 
-	process_selector = TRUE,
-	session = shiny::getDefaultReactiveDomain()
-){
-	selector <- make_selector(selector, process_selector)
-	session$sendCustomMessage('leprechaun-toggle', list(selector = selector))
+  selector,
+  process_selector = TRUE,
+  session = shiny::getDefaultReactiveDomain()
+) {
+  selector <- make_selector(selector, process_selector)
+  session$sendCustomMessage('leprechaun-toggle', list(selector = selector))
 }
 
 #' Enable and Disable
-#' 
+#'
 #' Enable and disable inputs.
-#' 
+#'
 #' @inheritParams js-visible
-#' 
+#'
 #' @name enable
-#' 
+#'
 #' @keywords internal
 disable <- function(
-	selector, 
-	process_selector = TRUE,
-	session = shiny::getDefaultReactiveDomain()
-){
-	selector <- make_selector(selector, process_selector)
-	session$sendCustomMessage('leprechaun-disable', list(selector = selector))
+  selector,
+  process_selector = TRUE,
+  session = shiny::getDefaultReactiveDomain()
+) {
+  selector <- make_selector(selector, process_selector)
+  session$sendCustomMessage('leprechaun-disable', list(selector = selector))
 }
 
 #' @rdname enable
 #' @keywords internal
 enable <- function(
-	selector, 
-	process_selector = TRUE,
-	session = shiny::getDefaultReactiveDomain()
-){
-	selector <- make_selector(selector, process_selector)
-	session$sendCustomMessage('leprechaun-enable', list(selector = selector))
+  selector,
+  process_selector = TRUE,
+  session = shiny::getDefaultReactiveDomain()
+) {
+  selector <- make_selector(selector, process_selector)
+  session$sendCustomMessage('leprechaun-enable', list(selector = selector))
 }
 
 #' Make Selector
-#' 
+#'
 #' Ensure that the output is a valid CSS selector.
-#' 
+#'
 #' @inheritParams js-visible
-#' 
+#'
 #' @examples make_selector("hello")
-#' 
+#'
 #' @keywords internal
-make_selector <- function(selector, process_selector = TRUE){
-	if(!process_selector)
-		return(selector)
+make_selector <- function(selector, process_selector = TRUE) {
+  if (!process_selector) return(selector)
 
-	is_selector <- grepl("^\\#|^\\.|^\\[|^\\:", selector)
+  is_selector <- grepl("^\\#|^\\.|^\\[|^\\:", selector)
 
-	if(is_selector)
-		return(selector)
+  if (is_selector) return(selector)
 
-	sprintf("#%s", selector)
+  sprintf("#%s", selector)
 }
 
 #' Evaluate
-#' 
+#'
 #' Evaluate JavaScript code.
-#' 
+#'
 #' @param code
-#' 
+#'
 #' @keywords internal
 eval_js <- function(
-	code,
-	session = shiny::getDefaultReactiveDomain()
-){
-	if(missing(code))
-		stop("Missing `code`", call. = FALSE)
+  code,
+  session = shiny::getDefaultReactiveDomain()
+) {
+  if (missing(code)) stop("Missing `code`", call. = FALSE)
 
-	session$sendCustomMessage('leprechaun-eval', list(code = code))
+  session$sendCustomMessage('leprechaun-eval', list(code = code))
 }
 
 #---------------------------------------------#

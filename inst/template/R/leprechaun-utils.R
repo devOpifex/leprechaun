@@ -3,45 +3,43 @@
 #---------------------------------------------#
 
 #' Create a Helper to Send Messages
-#' 
+#'
 #' Create a function to send custom messages to the front-end,
 #' this function makes it such that the namespace is carried
 #' along.
 #' The namespace is appended as `ns`.
-#' The namespace with the optional hyphen is 
+#' The namespace with the optional hyphen is
 #' included as `ns2`.
-#' 
+#'
 #' @param session Shiny session to derive namespace
 #' @param prefix A prefix to add to all types.
 #' Note that the prefix is followed by a hyphen `-`.
-#' 
-#' @examples 
+#'
+#' @examples
 #' \dontrun{
 #' send_message <- make_send_message(session)
 #' send_message("do-sth")
 #' send_message("do-sth-else", x = 1)
-#' 
+#'
 #' # with prefix
 #' send_message <- make_send_message(session, prefix = "PREFIX")
-#' 
+#'
 #' # this sends a mesasge of type:
 #' # PREFIX-so-th
 #' send_message("do-sth")
 #' }
-#' 
-#' @noRd 
+#'
+#' @noRd
 #' @keywords internal
-make_send_message <- function(session, prefix = NULL){
+make_send_message <- function(session, prefix = NULL) {
   ns <- session$ns(NULL)
 
   ns2 <- ns
-  if(length(ns) > 0 && ns != "")
-    ns2 <- paste0(ns2, "-")
+  if (length(ns) > 0 && ns != "") ns2 <- paste0(ns2, "-")
 
-  function(msgId, ...){
-    if(!is.null(prefix))
-      msgId <- sprintf("%s-%s", prefix, msgId)
-    
+  function(msgId, ...) {
+    if (!is.null(prefix)) msgId <- sprintf("%s-%s", prefix, msgId)
+
     session$sendCustomMessage(
       msgId,
       list(

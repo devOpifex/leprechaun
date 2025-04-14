@@ -1,68 +1,68 @@
 #' Build
-#' 
-#' Runs the various scripts that were created with 
+#'
+#' Runs the various scripts that were created with
 #' `setup` functions.
-#' 
+#'
 #' @importFrom cli cli_alert_success cli_alert_warning
-#' 
-#' @examples 
+#'
+#' @examples
 #' \dontrun{build()}
-#' 
+#'
 #' @importFrom roxygen2 roclet
-#' 
+#'
 #' @return Invisibly returns a boolean indicating
 #' whether the operation was successful.
-#' 
+#'
 #' @name build
-#' @export 
-build <- function(){
-	files <- list.files("inst/dev", pattern = ".R$")
+#' @export
+build <- function() {
+  files <- list.files("inst/dev", pattern = ".R$")
 
-	if(length(files) == 0){
-		cli_alert_warning("Nothing to build")
-		return(invisible(FALSE))
-	}
+  if (length(files) == 0) {
+    cli_alert_warning("Nothing to build")
+    return(invisible(FALSE))
+  }
 
-	sapply(files, function(file){
-		cli_alert_success("Running {.file {file}}")
-		source(file.path("inst", "dev", file))
-	})
+  sapply(files, function(file) {
+    cli_alert_success("Running {.file {file}}")
+    source(file.path("inst", "dev", file))
+  })
 
-	invisible(TRUE)
+  invisible(TRUE)
 }
 
 #' Build Roclet
-#' 
+#'
 #' Roclet to run [build()] when documenting.
 #' Meant to be used in `DESCRIPTION`, e.g.:
 #' `Roxygen: list(markdown = TRUE, roclets = c("namespace", "collate", "rd", "leprechaun::build_roclet"))`
-#' 
+#'
 #' @import roxygen2
-#' 
+#'
 #' @return An object of class `roclet` as expected
 #' by roxygen2.
-#' 
-#' @export 
+#'
+#' @export
 build_roclet <- function() {
-	roclet("build")
+  roclet("build")
 }
 
-#' @export 
+#' @export
 roclet_process.roclet_build <- function(
-	x, 
-	blocks, 
-	env, 
-	base_path
+  x,
+  blocks,
+  env,
+  base_path
 ) {
-	invisible()
+  invisible()
 }
 
-#' @export 
+#' @export
 roclet_output.roclet_build <- function(
-	x, 
-	results, 
-	base_path, 
-	...
+  x,
+  results,
+  base_path,
+  ...
 ) {
-	build()
+  build()
 }
